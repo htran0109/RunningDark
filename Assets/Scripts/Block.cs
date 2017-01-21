@@ -26,7 +26,7 @@ public class Block : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D coll)
     {
         Debug.Log(coll.gameObject.name + "Hit" );
-        if(coll.gameObject.tag == "Ping")
+        if(coll.gameObject.tag == "LargePing" || coll.gameObject.tag == "SmallPing")
         {
             Debug.Log("Illuminated");
             visibility = 255;
