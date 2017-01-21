@@ -2,17 +2,22 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LargePing : MonoBehaviour {
+public class SmallPing : MonoBehaviour {
 
     public float duration = 5.0f;
     public float startScale = 1.0f;
-    public float endScale = 7.0f;
+    public float endScale = 1.5f;
+    public float distance = 5.0f;
+    private Vector3 startPosition;
+    private Vector3 endPosition;
     private float startTime;
 
-	// Use this for initialization
-	void Start () {
+    // Use this for initialization
+    void Start () {
         startTime = Time.time;
-	}
+        startPosition = transform.position;
+        endPosition = transform.position + new Vector3(distance, 0, 0);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -23,9 +28,8 @@ public class LargePing : MonoBehaviour {
             Destroy(gameObject);
         }
         float scale = Mathf.Lerp(startScale, endScale, progress);
+        Vector3 pos = Vector3.Lerp(startPosition, endPosition, progress);
         transform.localScale = new Vector3(scale, scale, scale);
-
-        
-
-	}
+        transform.position = pos;
+    }
 }

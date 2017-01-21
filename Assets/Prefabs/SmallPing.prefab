@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4364653468439928}
   - component: {fileID: 212277843554514134}
-  - component: {fileID: 114811966614568066}
   - component: {fileID: 60292657759972630}
   - component: {fileID: 50938875474180204}
+  - component: {fileID: 114237527120516370}
   m_Layer: 9
   m_Name: SmallPing
   m_TagString: GroundPing
@@ -38,7 +38,7 @@ Transform:
   m_GameObject: {fileID: 1113086461082314}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -80,7 +80,7 @@ PolygonCollider2D:
     - - {x: -0.43301272, y: -0.24999994}
       - {x: 0.43301272, y: -0.25000003}
       - {x: 0, y: 0.5}
---- !u!114 &114811966614568066
+--- !u!114 &114237527120516370
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -88,9 +88,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1113086461082314}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be083252dc73b634db9f30b8c97afd79, type: 3}
+  m_Script: {fileID: 11500000, guid: 20437e9a86a819549a86e0f5b6599014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  duration: 0.1
+  startScale: 1.2
+  endScale: 2
+  distance: 3
 --- !u!212 &212277843554514134
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -123,6 +127,6 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: c0968fd6eb42e2f49aaeb06b18181dc7, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.166}
   m_FlipX: 0
   m_FlipY: 0
