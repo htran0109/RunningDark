@@ -5,6 +5,7 @@ using UnityEngine;
 public class Block : MonoBehaviour {
 
     private float visibility = 0;
+    public bool isClimbable = false;
 	// Use this for initialization
 	void Start () {
 		
@@ -25,10 +26,10 @@ public class Block : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D coll)
     {
-        Debug.Log(coll.gameObject.name + "Hit" );
+        //Debug.Log(coll.gameObject.name + "Hit" );
         if(coll.gameObject.tag == "GroundPing")
         {
-            Debug.Log("Illuminated");
+            //Debug.Log("Illuminated");
             visibility = 255;
         }
     }

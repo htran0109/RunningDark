@@ -20,21 +20,25 @@ public class Turret : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        /*
         if(Input.GetButtonDown("Fire2"))
         {
             StartCoroutine("Burst", player.transform.position);
         }
+        */
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag == "SmallPing")
-        {
+        Debug.Log(other.gameObject.name + "Hit" + other.gameObject.tag);
 
+        if (other.gameObject.tag == "SmallPing")
+        {
+            StartCoroutine("Shoot", player.transform.position);
         }
         else if (other.gameObject.tag == "LargePing")
         {
-
+            StartCoroutine("Burst", player.transform.position);
         }
     }
 
@@ -59,7 +63,7 @@ public class Turret : MonoBehaviour {
 
         RaycastHit2D hit;
         Debug.DrawRay(transform.position, (target - transform.position) * 10.0f, Color.green, 0.1f);
-        int layerMask = (1 << 8) | (1<<9);
+        int layerMask = (1 << 8) | (1<<9) | (1 << 10);
         layerMask = ~layerMask;
         hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), new Vector2((target - transform.position).x, (target - transform.position).y), laserRange, layerMask);
         //if hit object
@@ -85,7 +89,7 @@ public class Turret : MonoBehaviour {
         }
 
 
-        layerMask = (1 << 9);//ignore ground ping layer
+        layerMask = (1 << 9) | (1 << 10);//ignore ground ping layer and self
         layerMask = ~layerMask;
         hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), new Vector2((target - transform.position).x, (target - transform.position).y), 10.0f, layerMask);
         sfx.Play();

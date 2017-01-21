@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour {
     private Animator ani;
 
     private bool jump = false;
+    private bool climbing = false;
 
 	// Use this for initialization
 	void Start () {
@@ -32,7 +33,7 @@ public class PlayerMovement : MonoBehaviour {
 	void Update () {
         if(!GameManager.instance.gameover)
         {
-            if (IsGrounded())
+            if (IsGrounded() && !climbing)
             {
                 if (rb2d.velocity.y < 0)
                 {
@@ -68,7 +69,7 @@ public class PlayerMovement : MonoBehaviour {
         //Debug.DrawRay(transform.position, -Vector3.up * (distToGround + 0.1f), Color.red, 1);
         Debug.DrawRay(transform.position + new Vector3(horzSize, 0, 0), -Vector3.up * (distToGround + 0.1f), Color.red, 0.2f);
         Debug.DrawRay(transform.position - new Vector3(horzSize, 0, 0), -Vector3.up * (distToGround + 0.1f), Color.red, 0.2f);
-        int layerMask = (1 << 8) | (1 << 9);
+        int layerMask = (1 << 8) | (1 << 9) | (1 << 10);
         layerMask = ~layerMask;
         bool ret1 = Physics2D.Raycast(transform.position + new Vector3(horzSize - 0.05f, 0, 0), -Vector3.up, distToGround + 0.1f, layerMask);
         bool ret2 = Physics2D.Raycast(transform.position - new Vector3(horzSize - 0.05f, 0, 0), -Vector3.up, distToGround + 0.1f, layerMask);
@@ -103,5 +104,40 @@ public class PlayerMovement : MonoBehaviour {
         Vector3 scale = transform.localScale;
         scale.x *= -1;
         transform.localScale = scale;
+    }
+
+    void OnCollisionEnter2D(Collision2D coll)
+    {
+        Debug.Log(coll.gameObject.name + "Hit by player");
+        if(coll.gameObject.tag == "Ground")
+        {
+            Debug.Log("Block Found");
+            Block climbBlock = coll.gameObject.GetComponent<Block>();
+            Debug.Log(!IsGrounded() + ": " + climbBlock.isClimbable);
+            if (!IsGrounded() && climbBlock.isClimbable == true && rb2d.velocity.y > 0)
+            {
+                Debug.Log("Climbing");
+                StartCoroutine("climbMove", coll.gameObject);
+            }
+        }
+    }
+
+    IEnumerator climbMove(GameObject obj)
+    {
+        Debug.Log("In climbing method");
+        climbing = true;
+        cc.enabled = false;
+        Vector3 currPos = transform.position;
+        BoxCollider2D blockColl = obj.GetComponent<BoxCollider2D>();
+        float heightToGround = blockColl.bounds.extents.y;
+        Vector3 endPos = new Vector3(obj.transform.position.x, obj.transform.position.y + heightToGround + distToGround);
+        for (float i = 0; i < 50; i++)
+        {
+            Debug.Log("Still Climbing");
+            transform.position = Vector3.Lerp(currPos, endPos,  i / 49);
+            yield return null;
+        }
+        cc.enabled = true;
+        climbing = false;
     }
 }
