@@ -21,6 +21,7 @@ GameObject:
   - component: {fileID: 4946299856264670}
   - component: {fileID: 212981517417720950}
   - component: {fileID: 114766123177636148}
+  - component: {fileID: 61860229696481068}
   m_Layer: 0
   m_Name: turret
   m_TagString: Untagged
@@ -41,6 +42,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!61 &61860229696481068
+BoxCollider2D:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1686433804850818}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1}
 --- !u!114 &114766123177636148
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -52,9 +67,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e7dda91e8d9e8c4aa11a27fd79277bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1142281126095840, guid: bae685a4c0c19f54daf286b4d1925df9, type: 2}
+  player: {fileID: 0}
   laser: {fileID: 1502544366144002, guid: 911ff1f6ffc00ec4da7d029a40128424, type: 2}
   spark: {fileID: 1509869393819566, guid: 7b16c65ae7fbbf041b3d52e4cb06142d, type: 2}
+  burstFireDelay: 0.3
   laserRange: 10
 --- !u!212 &212981517417720950
 SpriteRenderer:

@@ -11,6 +11,7 @@ public class Ping : MonoBehaviour {
     private int direction = 0;
     public Transform smallPingSprite;
     public Transform largePingSprite;
+    public GameObject enemyPing;
 	// Use this for initialization
 	void Start () {
 		
@@ -32,6 +33,9 @@ public class Ping : MonoBehaviour {
             if(charge > .4f)
             {
                 Instantiate(largePingSprite, transform.position, Quaternion.identity);
+                GameObject triggerPing = Instantiate(enemyPing, transform.position, Quaternion.identity);
+                triggerPing.tag = "LargePing";
+
             }
             else if(charge > 0)
             {
@@ -44,6 +48,8 @@ public class Ping : MonoBehaviour {
 
                 Instantiate(smallPingSprite, new Vector3(transform.position.x + 1, transform.position.y, transform.position.z),
                                                          rot);
+                GameObject triggerPing = Instantiate(enemyPing, transform.position, Quaternion.identity);
+                triggerPing.tag = "SmallPing";
             }
             charge = 0;
         }
