@@ -8,6 +8,8 @@ public class Turret : MonoBehaviour {
     public GameObject laser;
     public GameObject spark;
 
+    public float burstFireDelay = 0.3f;
+
     public float laserRange = 10.0f;
     
     
@@ -20,7 +22,7 @@ public class Turret : MonoBehaviour {
 	void Update () {
         if(Input.GetButtonDown("Fire2"))
         {
-            StartCoroutine("Shoot", player.transform.position);
+            StartCoroutine("Burst", player.transform.position);
         }
     }
 
@@ -34,6 +36,15 @@ public class Turret : MonoBehaviour {
         {
 
         }
+    }
+
+    IEnumerator Burst(Vector3 target)
+    {
+        StartCoroutine("Shoot", player.transform.position);
+        yield return new WaitForSeconds(burstFireDelay);
+        StartCoroutine("Shoot", player.transform.position);
+        yield return new WaitForSeconds(burstFireDelay);
+        StartCoroutine("Shoot", player.transform.position);
     }
 
     IEnumerator Shoot(Vector3 target)
@@ -76,7 +87,7 @@ public class Turret : MonoBehaviour {
 
         layerMask = (1 << 9);//ignore ground ping layer
         layerMask = ~layerMask;
-        hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), new Vector2((target - transform.position).x, (target - transform.position).y), 10.0f);
+        hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), new Vector2((target - transform.position).x, (target - transform.position).y), 10.0f, layerMask);
         sfx.Play();
         if(hit.collider)
         {

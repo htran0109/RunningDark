@@ -88,7 +88,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1485cc4ac44a284f8023da28e44f52d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 5
+  duration: 2
   startScale: 1
   endScale: 30
 --- !u!212 &212537306201729422

@@ -52,9 +52,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e7dda91e8d9e8c4aa11a27fd79277bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 1142281126095840, guid: bae685a4c0c19f54daf286b4d1925df9, type: 2}
   laser: {fileID: 1502544366144002, guid: 911ff1f6ffc00ec4da7d029a40128424, type: 2}
   spark: {fileID: 1509869393819566, guid: 7b16c65ae7fbbf041b3d52e4cb06142d, type: 2}
+  laserRange: 10
 --- !u!212 &212981517417720950
 SpriteRenderer:
   m_ObjectHideFlags: 1

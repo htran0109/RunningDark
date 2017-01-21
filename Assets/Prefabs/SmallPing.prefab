@@ -20,9 +20,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4364653468439928}
   - component: {fileID: 212277843554514134}
-  - component: {fileID: 60292657759972630}
   - component: {fileID: 50938875474180204}
   - component: {fileID: 114237527120516370}
+  - component: {fileID: 61493504798735878}
   m_Layer: 9
   m_Name: SmallPing
   m_TagString: GroundPing
@@ -63,8 +63,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!60 &60292657759972630
-PolygonCollider2D:
+--- !u!61 &61493504798735878
+BoxCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -75,11 +75,8 @@ PolygonCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
-  m_Points:
-    m_Paths:
-    - - {x: -0.43301272, y: -0.24999994}
-      - {x: 0.43301272, y: -0.25000003}
-      - {x: 0, y: 0.5}
+  serializedVersion: 2
+  m_Size: {x: 1.0000002, y: 1.0000002}
 --- !u!114 &114237527120516370
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -92,8 +89,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   duration: 0.1
-  startScale: 1.5
-  endScale: 2.5
+  startScale: 3
+  endScale: 4
   distance: 3
 --- !u!212 &212277843554514134
 SpriteRenderer:

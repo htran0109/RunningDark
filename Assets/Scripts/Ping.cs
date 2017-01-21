@@ -35,8 +35,15 @@ public class Ping : MonoBehaviour {
             }
             else if(charge > 0)
             {
+                Quaternion rot = smallPingSprite.transform.rotation;
+                if(direction == FACE_LEFT)
+                {
+                    Debug.Log("FLIPPED PING");
+                    rot.eulerAngles = new Vector3(0, 0, -90);
+                }
+
                 Instantiate(smallPingSprite, new Vector3(transform.position.x + 1, transform.position.y, transform.position.z),
-                                                         smallPingSprite.transform.rotation);
+                                                         rot);
             }
             charge = 0;
         }
