@@ -9,6 +9,7 @@ TagManager:
   - SmallPing
   - GroundPing
   - Ping
+  - Spike
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - 
   - Player
   - GroundPing
-  - 
+  - Ground
   - 
   - 
   - 
