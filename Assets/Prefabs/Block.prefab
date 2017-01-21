@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 114859895538756684}
   m_Layer: 0
   m_Name: Block
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: -4087464717476244675, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,6 +67,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0951fd5e48f9808429ec7af35daaf7da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isClimbable: 0
 --- !u!212 &212814285791786846
 SpriteRenderer:
   m_ObjectHideFlags: 1
