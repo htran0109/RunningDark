@@ -4,8 +4,10 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Ping
   - Ground
+  - LargePing
+  - SmallPing
+  - GroundPing
   layers:
   - Default
   - TransparentFX
