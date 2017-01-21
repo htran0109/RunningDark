@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 58516164600351446}
   - component: {fileID: 50625534390055922}
   - component: {fileID: 114268124171355642}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LargePing
   m_TagString: GroundPing
   m_Icon: {fileID: 0}
@@ -100,9 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1485cc4ac44a284f8023da28e44f52d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 1
+  duration: 5
   startScale: 1
-  endScale: 30
+  endScale: 60
 --- !u!212 &212537306201729422
 SpriteRenderer:
   m_ObjectHideFlags: 1

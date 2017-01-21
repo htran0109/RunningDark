@@ -23,7 +23,7 @@ GameObject:
   - component: {fileID: 114811966614568066}
   - component: {fileID: 60292657759972630}
   - component: {fileID: 50938875474180204}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: SmallPing
   m_TagString: GroundPing
   m_Icon: {fileID: 0}
