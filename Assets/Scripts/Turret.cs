@@ -5,17 +5,15 @@ using UnityEngine;
 public class Turret : MonoBehaviour {
 
     public GameObject player;
+    public GameObject laser;
+    public GameObject spark;
 
-    AudioSource sfx;
-    AudioClip shootsfx;
-
-    LineRenderer lr;
-
+    public float laserRange = 10.0f;
+    
+    
 
 	// Use this for initialization
 	void Start () {
-        lr = gameObject.GetComponent<LineRenderer>();
-        
 	}
 	
 	// Update is called once per frame
@@ -40,11 +38,19 @@ public class Turret : MonoBehaviour {
 
     IEnumerator Shoot(Vector3 target)
     {
+        GameObject shot = Instantiate(laser, transform);
+        LineRenderer lr = shot.GetComponent<LineRenderer>();
+        AudioSource sfx = shot.GetComponent<AudioSource>();
+        lr.startWidth = 0.1f;
+        lr.endWidth = 0.1f;
         lr.enabled = true;
+        lr.material = new Material(Shader.Find("Particles/Additive (Soft)"));
 
         RaycastHit2D hit;
         Debug.DrawRay(transform.position, (target - transform.position) * 10.0f, Color.green, 0.1f);
-        hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), new Vector2((target - transform.position).x, (target - transform.position).y), 10.0f);
+        int layerMask = 1 << 8;
+        layerMask = ~layerMask;
+        hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), new Vector2((target - transform.position).x, (target - transform.position).y), laserRange, layerMask);
         //if hit object
         if (hit.collider != null)
         {
@@ -52,20 +58,40 @@ public class Turret : MonoBehaviour {
         }
         else
         {
-            lr.SetPosition(1, transform.position + (target - transform.position) * 10.0f);
+            lr.SetPosition(1, transform.position + (target - transform.position) * laserRange);
         }
         lr.SetPosition(0, transform.position);
-        
-        lr.material.color = Color.red;
-        lr.material.color = Color.red;
 
-        yield return new WaitForSeconds(1.0f);
-        //sfx.clip = shootsfx;
-        lr.material.color = Color.white;
-        lr.material.color = Color.white;
+        Color laserColor;
+        for (int i = 0; i < 10; i++)
+        {
+            laserColor = Color.red;
+            laserColor.a = i / 10.0f;
+            Debug.Log("alpha: " + laserColor.a);
+            lr.startColor = laserColor;
+            lr.endColor = laserColor;
+            yield return new WaitForSeconds(0.1f);
+        }
+
+        
+
+        hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), new Vector2((target - transform.position).x, (target - transform.position).y), 10.0f);
+        sfx.Play();
+        if(hit.collider)
+        {
+            if(hit.collider.gameObject.tag == "Player")
+            {
+                Debug.Log("Hit Player");
+            }
+            Instantiate(spark, hit.point, Quaternion.identity);
+        }
+        laserColor = Color.white;
+        lr.startColor = laserColor;
+        lr.endColor = laserColor;
 
         yield return new WaitForSeconds(0.1f);
         lr.enabled = false;
+        Destroy(shot);
         
 
 

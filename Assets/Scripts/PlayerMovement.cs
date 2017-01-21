@@ -58,8 +58,10 @@ public class PlayerMovement : MonoBehaviour {
         //Debug.DrawRay(transform.position, -Vector3.up * (distToGround + 0.1f), Color.red, 1);
         Debug.DrawRay(transform.position + new Vector3(horzSize, 0, 0), -Vector3.up * (distToGround + 0.1f), Color.red, 0.2f);
         Debug.DrawRay(transform.position - new Vector3(horzSize, 0, 0), -Vector3.up * (distToGround + 0.1f), Color.red, 0.2f);
-        bool ret1 = Physics2D.Raycast(transform.position + new Vector3(horzSize, 0, 0), -Vector3.up, distToGround + 0.1f);
-        bool ret2 = Physics2D.Raycast(transform.position - new Vector3(horzSize, 0, 0), -Vector3.up, distToGround + 0.1f);
+        int layerMask = 1 << 8;
+        layerMask = ~layerMask;
+        bool ret1 = Physics2D.Raycast(transform.position + new Vector3(horzSize, 0, 0), -Vector3.up, distToGround + 0.1f, layerMask);
+        bool ret2 = Physics2D.Raycast(transform.position - new Vector3(horzSize, 0, 0), -Vector3.up, distToGround + 0.1f, layerMask);
         return ret1 || ret2;
     }
 }
