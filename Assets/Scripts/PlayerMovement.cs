@@ -5,13 +5,16 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
     public float speed = 5;
+    public float animSpeedThresh = 2;
     public float jumpSpeed = 10;
 
     private float distToGround;
     private float horzSize;
+    private bool facingRight;
 
     private CircleCollider2D cc;
     private Rigidbody2D rb2d;
+    private Animator ani;
 
     private bool jump = false;
 
@@ -19,6 +22,7 @@ public class PlayerMovement : MonoBehaviour {
 	void Start () {
         cc = gameObject.GetComponent<CircleCollider2D>();
         rb2d = gameObject.GetComponent<Rigidbody2D>();
+        ani = gameObject.GetComponent<Animator>();
         distToGround = cc.bounds.extents.y;
         horzSize = cc.bounds.extents.x;
         Debug.Log("dist to ground: " + distToGround);
@@ -51,6 +55,7 @@ public class PlayerMovement : MonoBehaviour {
                 rb2d.velocity = new Vector2(0, rb2d.velocity.y);
             }
         }
+        animate();
 		
 	}
 
@@ -64,5 +69,35 @@ public class PlayerMovement : MonoBehaviour {
         bool ret1 = Physics2D.Raycast(transform.position + new Vector3(horzSize, 0, 0), -Vector3.up, distToGround + 0.1f, layerMask);
         bool ret2 = Physics2D.Raycast(transform.position - new Vector3(horzSize, 0, 0), -Vector3.up, distToGround + 0.1f, layerMask);
         return ret1 || ret2;
+    }
+
+    void animate()
+    {
+        if(Mathf.Abs(rb2d.velocity.x) > animSpeedThresh)
+        {
+            
+            ani.SetBool("Moving", true);
+        }
+        else
+        {
+            
+            ani.SetBool("Moving", false);
+        }
+        if(rb2d.velocity.x > 0 && facingRight)
+        {
+            flip();
+        }
+        else if (rb2d.velocity.x < 0 && !facingRight)
+        {
+            flip();
+        }
+    }
+
+    void flip()
+    {
+        facingRight = !facingRight;
+        Vector3 scale = transform.localScale;
+        scale.x *= -1;
+        transform.localScale = scale;
     }
 }
