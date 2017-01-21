@@ -16,6 +16,7 @@ public class DisappearPing : MonoBehaviour {
         if(timer > 0.2f)
         {
             Destroy(this.gameObject);
+            Debug.Log("Removed");
         }
 	}
 }
