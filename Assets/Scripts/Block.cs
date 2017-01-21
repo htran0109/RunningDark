@@ -16,7 +16,7 @@ public class Block : MonoBehaviour {
 		if(visibility > 0 )
         {
             visibility -= 170 * Time.deltaTime;
-            Debug.Log(visibility);
+            //Debug.Log(visibility);
         }
         Color temp = gameObject.GetComponent<SpriteRenderer>().color;
         temp.a = visibility/255;

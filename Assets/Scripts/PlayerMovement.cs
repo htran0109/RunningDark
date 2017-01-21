@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
     public float speed = 5;
+    public float jumpSpeed = 10;
 
     private float distToGround;
     private float horzSize;
@@ -36,11 +37,11 @@ public class PlayerMovement : MonoBehaviour {
             
            // transform.Translate(horz * speed * Time.deltaTime, 0, 0);
 
-            if(Input.GetButtonDown("Fire1"))
+            if(Input.GetButtonDown("Jump"))
             {
                 Debug.Log("JUMP");
                 jump = true;
-                rb2d.velocity = rb2d.velocity + new Vector2(0, 5);
+                rb2d.velocity = rb2d.velocity + new Vector2(0, jumpSpeed);
             }
         }
         else

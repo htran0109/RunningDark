@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 114017600677046922}
   - component: {fileID: 58516164600351446}
   - component: {fileID: 50625534390055922}
+  - component: {fileID: 114268124171355642}
   m_Layer: 0
   m_Name: LargePing
   m_TagString: GroundPing
@@ -38,7 +39,7 @@ Transform:
   m_GameObject: {fileID: 1745225885632778}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -88,6 +89,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be083252dc73b634db9f30b8c97afd79, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114268124171355642
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1745225885632778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a1485cc4ac44a284f8023da28e44f52d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duration: 1
+  startScale: 1
+  endScale: 30
 --- !u!212 &212537306201729422
 SpriteRenderer:
   m_ObjectHideFlags: 1
