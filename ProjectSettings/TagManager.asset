@@ -8,6 +8,7 @@ TagManager:
   - LargePing
   - SmallPing
   - GroundPing
+  - Ping
   layers:
   - Default
   - TransparentFX
@@ -17,8 +18,8 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
+  - Player
+  - GroundPing
   - 
   - 
   - 

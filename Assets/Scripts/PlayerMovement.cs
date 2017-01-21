@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour {
 
     public float speed = 5;
+    public float jumpSpeed = 10;
 
     private float distToGround;
     private float horzSize;
@@ -36,11 +37,11 @@ public class PlayerMovement : MonoBehaviour {
             
            // transform.Translate(horz * speed * Time.deltaTime, 0, 0);
 
-            if(Input.GetButtonDown("Fire1"))
+            if(Input.GetButtonDown("Jump"))
             {
                 Debug.Log("JUMP");
                 jump = true;
-                rb2d.velocity = rb2d.velocity + new Vector2(0, 5);
+                rb2d.velocity = rb2d.velocity + new Vector2(0, jumpSpeed);
             }
         }
         else
@@ -58,8 +59,10 @@ public class PlayerMovement : MonoBehaviour {
         //Debug.DrawRay(transform.position, -Vector3.up * (distToGround + 0.1f), Color.red, 1);
         Debug.DrawRay(transform.position + new Vector3(horzSize, 0, 0), -Vector3.up * (distToGround + 0.1f), Color.red, 0.2f);
         Debug.DrawRay(transform.position - new Vector3(horzSize, 0, 0), -Vector3.up * (distToGround + 0.1f), Color.red, 0.2f);
-        bool ret1 = Physics2D.Raycast(transform.position + new Vector3(horzSize, 0, 0), -Vector3.up, distToGround + 0.1f);
-        bool ret2 = Physics2D.Raycast(transform.position - new Vector3(horzSize, 0, 0), -Vector3.up, distToGround + 0.1f);
+        int layerMask = (1 << 8) | (1 << 9);
+        layerMask = ~layerMask;
+        bool ret1 = Physics2D.Raycast(transform.position + new Vector3(horzSize, 0, 0), -Vector3.up, distToGround + 0.1f, layerMask);
+        bool ret2 = Physics2D.Raycast(transform.position - new Vector3(horzSize, 0, 0), -Vector3.up, distToGround + 0.1f, layerMask);
         return ret1 || ret2;
     }
 }
