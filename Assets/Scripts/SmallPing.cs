@@ -16,7 +16,8 @@ public class SmallPing : MonoBehaviour {
     void Start () {
         startTime = Time.time;
         startPosition = transform.position;
-        endPosition = transform.position + new Vector3(distance, 0, 0);
+        endPosition = transform.position + -transform.up * distance;
+        Debug.Log(startPosition + " to " + endPosition);
     }
 	
 	// Update is called once per frame
