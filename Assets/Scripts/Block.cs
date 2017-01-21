@@ -5,6 +5,7 @@ using UnityEngine;
 public class Block : MonoBehaviour {
 
     private float visibility = 0;
+    public bool isClimbable = false;
 	// Use this for initialization
 	void Start () {
 		
