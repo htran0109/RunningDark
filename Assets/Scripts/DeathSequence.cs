@@ -30,8 +30,12 @@ public class DeathSequence : MonoBehaviour
     public void Die()
     {
 
+        Physics2D.IgnoreLayerCollision(8, 10, true);
+       // Player.GetComponent<Collider2D>().enabled = false;
+        //Player.GetComponent<Collider2D>().enabled = true;
+        //Debug.Log("dropped");
 
-
+        Destroy(gameObject);
 
 
     }
