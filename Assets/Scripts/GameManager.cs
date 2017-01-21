@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour {
 
-    static GameManager instance;
+    public static GameManager instance;
 
     public bool gameover = false;
+    public Vector3 checkpoint;
 
     void Awake()
     {
@@ -23,6 +24,9 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
+		if(gameover)
+        {
+            //do some text stuff
+        }
 	}
 }
