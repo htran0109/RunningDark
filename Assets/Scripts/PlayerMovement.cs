@@ -46,7 +46,6 @@ public class PlayerMovement : MonoBehaviour {
                 if (Input.GetButtonDown("Jump"))
                 {
                     Debug.Log("JUMP");
-                    ani.SetTrigger("Jumped");
                     jump = true;
                     rb2d.velocity = rb2d.velocity + new Vector2(0, jumpSpeed);
                 }
@@ -69,11 +68,10 @@ public class PlayerMovement : MonoBehaviour {
         //Debug.DrawRay(transform.position, -Vector3.up * (distToGround + 0.1f), Color.red, 1);
         Debug.DrawRay(transform.position + new Vector3(horzSize, 0, 0), -Vector3.up * (distToGround + 0.1f), Color.red, 0.2f);
         Debug.DrawRay(transform.position - new Vector3(horzSize, 0, 0), -Vector3.up * (distToGround + 0.1f), Color.red, 0.2f);
-        int layerMask = (1 << 8) | (1 << 9);
+        int layerMask = (1 << 8) | (1 << 9) | (1 << 10);
         layerMask = ~layerMask;
         bool ret1 = Physics2D.Raycast(transform.position + new Vector3(horzSize - 0.05f, 0, 0), -Vector3.up, distToGround + 0.1f, layerMask);
         bool ret2 = Physics2D.Raycast(transform.position - new Vector3(horzSize - 0.05f, 0, 0), -Vector3.up, distToGround + 0.1f, layerMask);
-        ani.SetBool("Grounded", ret1||ret2); //play falling animation if not on ground
         return ret1 || ret2;
     }
 

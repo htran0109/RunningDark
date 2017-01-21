@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Ping : MonoBehaviour {
 
+    public int maxCapacity = 15;
+    private int ammo;
+    public int smallPingCost = 1;
+    public int largePingCost = 3;
+
     private const int FACE_LEFT = 0;
     private const int FACE_RIGHT = 1;
     private int cooldown = 0;
@@ -14,7 +19,7 @@ public class Ping : MonoBehaviour {
     public GameObject enemyPing;
 	// Use this for initialization
 	void Start () {
-		
+        ammo = maxCapacity;
 	}
 	
 	// Update is called once per frame
@@ -32,24 +37,42 @@ public class Ping : MonoBehaviour {
         {
             if(charge > .4f)
             {
-                Instantiate(largePingSprite, transform.position, Quaternion.identity);
-                GameObject triggerPing = Instantiate(enemyPing, transform.position, Quaternion.identity);
-                triggerPing.tag = "LargePing";
+                if(ammo >= largePingCost)
+                {
+                    ammo -= largePingCost;
+                    Instantiate(largePingSprite, transform.position, Quaternion.identity);
+                    GameObject triggerPing = Instantiate(enemyPing, transform.position, Quaternion.identity);
+                    triggerPing.tag = "LargePing";
+                }
+                else
+                {
+                    //out of charge effect
+                }
+                
 
             }
             else if(charge > 0)
             {
-                Quaternion rot = smallPingSprite.transform.rotation;
-                if(direction == FACE_LEFT)
+                if(ammo >= smallPingCost)
                 {
-                    Debug.Log("FLIPPED PING");
-                    rot.eulerAngles = new Vector3(0, 0, -90);
-                }
+                    ammo -= smallPingCost;
+                    Quaternion rot = smallPingSprite.transform.rotation;
+                    if (direction == FACE_LEFT)
+                    {
+                        Debug.Log("FLIPPED PING");
+                        rot.eulerAngles = new Vector3(0, 0, -90);
+                    }
 
-                Instantiate(smallPingSprite, new Vector3(transform.position.x + 1, transform.position.y, transform.position.z),
-                                                         rot);
-                GameObject triggerPing = Instantiate(enemyPing, transform.position, Quaternion.identity);
-                triggerPing.tag = "SmallPing";
+                    Instantiate(smallPingSprite, new Vector3(transform.position.x + 1, transform.position.y, transform.position.z),
+                                                             rot);
+                    GameObject triggerPing = Instantiate(enemyPing, transform.position, Quaternion.identity);
+                    triggerPing.tag = "SmallPing";
+                }
+                else
+                {
+                    //out of charge effect
+                }
+                
             }
             charge = 0;
         }
