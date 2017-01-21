@@ -1,8 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Ping : MonoBehaviour {
+
+    public RectTransform canvas;
+    public RectTransform ammoBar;
+    public Image ammoImage;
 
     public int maxCapacity = 15;
     private int ammo;
@@ -25,6 +30,12 @@ public class Ping : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         readKeys();
+        //newRect.xMax = (maxCapacity - ammo) / (float)maxCapacity
+        Color barColor = Color.Lerp(Color.red, Color.green, ammo / (float)maxCapacity);
+        barColor.a = 0.5f;
+        ammoBar.sizeDelta = new Vector2((ammo - maxCapacity) / (float)maxCapacity * canvas.rect.width, 40);
+        ammoImage.color = barColor;
+        
 	}
 
     void readKeys()
