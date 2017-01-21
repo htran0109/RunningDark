@@ -1,11 +1,12 @@
 fileFormatVersion: 2
 guid: 8cf2f40b468c8fc4283a48658f23ebca
-timeCreated: 1484982329
+timeCreated: 1484987754
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
     21300000: 2015-02-17 [Blocks] (20 Textures)(9x2 Color Schemes)_0
     21300002: 2015-02-17 [Blocks] (20 Textures)(9x2 Color Schemes)_1
+    21300004: 2015-02-17 [Blocks] (20 Textures)(9x2 Color Schemes)_2
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -90,6 +91,19 @@ TextureImporter:
         serializedVersion: 2
         x: 184
         y: 184
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      tessellationDetail: 0
+    - serializedVersion: 2
+      name: 2015-02-17 [Blocks] (20 Textures)(9x2 Color Schemes)_2
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 112
         width: 16
         height: 16
       alignment: 0
