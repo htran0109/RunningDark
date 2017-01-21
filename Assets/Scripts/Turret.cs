@@ -48,7 +48,7 @@ public class Turret : MonoBehaviour {
 
         RaycastHit2D hit;
         Debug.DrawRay(transform.position, (target - transform.position) * 10.0f, Color.green, 0.1f);
-        int layerMask = 1 << 8;
+        int layerMask = (1 << 8) | (1<<9);
         layerMask = ~layerMask;
         hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), new Vector2((target - transform.position).x, (target - transform.position).y), laserRange, layerMask);
         //if hit object
