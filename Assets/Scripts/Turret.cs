@@ -63,7 +63,7 @@ public class Turret : MonoBehaviour {
 
         RaycastHit2D hit;
         Debug.DrawRay(transform.position, (target - transform.position) * 10.0f, Color.green, 0.1f);
-        int layerMask = (1 << 8) | (1<<9) | (1 << 10);
+        int layerMask = (1 << LayerMask.NameToLayer("Player")) | (1<< LayerMask.NameToLayer("GroundPing")) | (1 << LayerMask.NameToLayer("Enemy"));
         layerMask = ~layerMask;
         hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), new Vector2((target - transform.position).x, (target - transform.position).y), laserRange, layerMask);
         //if hit object
@@ -89,7 +89,7 @@ public class Turret : MonoBehaviour {
         }
 
 
-        layerMask = (1 << 9) | (1 << 10);//ignore ground ping layer and self
+        layerMask = (1 << LayerMask.NameToLayer("GroundPing")) | (1 << LayerMask.NameToLayer("Enemy"));//ignore ground ping layer and self
         layerMask = ~layerMask;
         hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), new Vector2((target - transform.position).x, (target - transform.position).y), 10.0f, layerMask);
         sfx.Play();
