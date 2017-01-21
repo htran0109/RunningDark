@@ -5,6 +5,8 @@ using UnityEngine;
 public class Ping : MonoBehaviour {
 
     private int cooldown = 0;
+    private float charge = 0;
+    public Transform pingSprite;
 	// Use this for initialization
 	void Start () {
 		
@@ -17,6 +19,21 @@ public class Ping : MonoBehaviour {
 
     void readKeys()
     {
+        if(Input.GetButton("Fire1"))
+        {
+            charge += Time.deltaTime;
+        }
+        if(Input.GetButtonUp("Fire1"))
+        {
+            if(charge > 3.0f)
+            {
 
+            }
+            else if(charge > 1.0f)
+            {
+                Instantiate(pingSprite, transform.position, Quaternion.identity);
+            }
+            charge = 0;
+        }
     }
 }
