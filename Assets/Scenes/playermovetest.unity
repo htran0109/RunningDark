@@ -943,6 +943,10 @@ Prefab:
       propertyPath: player
       value: 
       objectReference: {fileID: 1869531837}
+    - target: {fileID: 1686433804850818, guid: a83d12d554d79b74bb421d4155aedd0f, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a83d12d554d79b74bb421d4155aedd0f, type: 2}
   m_IsPrefabParent: 0
@@ -1793,6 +1797,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 114660310199199484, guid: bae685a4c0c19f54daf286b4d1925df9,
+        type: 2}
+      propertyPath: enemyPing
+      value: 
+      objectReference: {fileID: 1865722114124748, guid: f97c8c9d702ba2c45af340510f0a2653,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bae685a4c0c19f54daf286b4d1925df9, type: 2}
   m_IsPrefabParent: 0

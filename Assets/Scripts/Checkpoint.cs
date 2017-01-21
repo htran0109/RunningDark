@@ -5,10 +5,12 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour {
 
     AudioSource sfx;
+    BoxCollider2D bc;
 
 	// Use this for initialization
 	void Start () {
         sfx = gameObject.GetComponent<AudioSource>();
+        bc = gameObject.GetComponent<BoxCollider2D>();
 	}
 	
 	// Update is called once per frame
@@ -29,6 +31,7 @@ public class Checkpoint : MonoBehaviour {
 
     IEnumerator Collect()
     {
+        bc.enabled = false;
         sfx.Play();
         for(int i = 0; i < 10; i++)
         {
