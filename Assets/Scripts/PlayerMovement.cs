@@ -27,17 +27,27 @@ public class PlayerMovement : MonoBehaviour {
 	void Update () {
         if(IsGrounded())
         {
-            Debug.Log("Grounded");
-            jump = false;
+            if(rb2d.velocity.y < 0)
+            {
+                jump = false;
+            }
             float horz = Input.GetAxis("Horizontal");
-            rb2d.velocity = new Vector2(horz * speed, 0);
+            rb2d.velocity = new Vector2(horz * speed, rb2d.velocity.y);
             
            // transform.Translate(horz * speed * Time.deltaTime, 0, 0);
 
             if(Input.GetButtonDown("Fire1"))
             {
                 Debug.Log("JUMP");
+                jump = true;
                 rb2d.velocity = rb2d.velocity + new Vector2(0, 5);
+            }
+        }
+        else
+        {
+            if(!jump)
+            {
+                rb2d.velocity = new Vector2(0, rb2d.velocity.y);
             }
         }
 		
