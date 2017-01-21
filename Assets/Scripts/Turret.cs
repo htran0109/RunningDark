@@ -73,8 +73,9 @@ public class Turret : MonoBehaviour {
             yield return new WaitForSeconds(0.1f);
         }
 
-        
 
+        layerMask = (1 << 9);//ignore ground ping layer
+        layerMask = ~layerMask;
         hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), new Vector2((target - transform.position).x, (target - transform.position).y), 10.0f);
         sfx.Play();
         if(hit.collider)
