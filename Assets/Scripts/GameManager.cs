@@ -33,7 +33,9 @@ public class GameManager : MonoBehaviour {
                 player = GameObject.FindGameObjectWithTag("Player");
                 player.GetComponent<SpriteRenderer>().enabled = true;
                 cameraObj.transform.SetParent(player.transform);
+                
                 player.transform.position = checkpoint;
+                cameraObj.transform.position = checkpoint - new Vector3(0,0,10);
                 gameover = false;
             }
         }

@@ -9,18 +9,18 @@ public class PlayerMovement : MonoBehaviour {
     public float jumpSpeed = 10;
     public float airSpeed = 5;
     
-    private float distToGround;
+    public float distToGround;
     private float horzSize;
     private bool facingRight;
 
-    private CircleCollider2D cc;
-    private BoxCollider2D bb;
+    public CircleCollider2D cc;
+    public BoxCollider2D bb;
     private Rigidbody2D rb2d;
-    private Animator ani;
+    public Animator ani;
     private SpriteRenderer sr;
 
     private bool jump = false;
-    private bool climbing = false;
+    public bool climbing = false;
 
 	// Use this for initialization
 	void Start () {
@@ -94,7 +94,7 @@ public class PlayerMovement : MonoBehaviour {
 		
 	}
 
-    bool IsGrounded()
+    public bool IsGrounded()
     {
         Debug.DrawRay(transform.position, -Vector3.up * (distToGround + 0.1f), Color.red, 1);
         Debug.DrawRay(transform.position + new Vector3(horzSize, 0, 0), -Vector3.up * (distToGround + 0.1f), Color.red, 0.2f);
@@ -136,7 +136,7 @@ public class PlayerMovement : MonoBehaviour {
         facingRight = !facingRight;
     }
 
-    void OnCollisionEnter2D(Collision2D coll)
+    /*void OnCollisionEnter2D(Collision2D coll)
     {
         Debug.Log(coll.gameObject.name + "Hit by player");
         if(coll.gameObject.tag == "Ground")
@@ -172,5 +172,5 @@ public class PlayerMovement : MonoBehaviour {
         cc.enabled = true;
         bb.enabled = true;
         climbing = false;
-    }
+    }*/
 }
