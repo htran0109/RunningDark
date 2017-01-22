@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour {
 		if(instance != null)
         {
             Destroy(instance.gameObject);
-            Debug.LogError("Singleton Goofed");
+            Debug.Log("Singleton Goofed");
         }
         instance = this;
 	}
