@@ -88,10 +88,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20437e9a86a819549a86e0f5b6599014, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 0.1
-  startScale: 3
-  endScale: 4
-  distance: 3
+  duration: 0.3
+  startScale: 1
+  endScale: 7
   startAlpha: 0.3
   endAlpha: 0.1
 --- !u!212 &212277843554514134
@@ -125,7 +124,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c0968fd6eb42e2f49aaeb06b18181dc7, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 220847d6b39a20f47a9c508860e6d618, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 0.166}
   m_FlipX: 0
   m_FlipY: 0
