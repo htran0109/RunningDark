@@ -26,7 +26,7 @@ public class PlayerMovement : MonoBehaviour {
         bb = gameObject.GetComponent<BoxCollider2D>();
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         ani = gameObject.GetComponent<Animator>();
-        distToGround = cc.bounds.extents.y + bb.bounds.extents.y;
+        distToGround = cc.bounds.extents.y/2 + bb.bounds.extents.y;
         horzSize = cc.bounds.extents.x;
         Debug.Log("dist to ground: " + distToGround);
 	}
@@ -69,7 +69,7 @@ public class PlayerMovement : MonoBehaviour {
 
     bool IsGrounded()
     {
-        //Debug.DrawRay(transform.position, -Vector3.up * (distToGround + 0.1f), Color.red, 1);
+        Debug.DrawRay(transform.position, -Vector3.up * (distToGround + 0.1f), Color.red, 1);
         Debug.DrawRay(transform.position + new Vector3(horzSize, 0, 0), -Vector3.up * (distToGround + 0.1f), Color.red, 0.2f);
         Debug.DrawRay(transform.position - new Vector3(horzSize, 0, 0), -Vector3.up * (distToGround + 0.1f), Color.red, 0.2f);
         int layerMask = (1 << LayerMask.NameToLayer("Player")) | (1 << LayerMask.NameToLayer("GroundPing")) | (1 << LayerMask.NameToLayer("Enemy")) | (1 << LayerMask.NameToLayer("PickUp")); ;
@@ -118,9 +118,10 @@ public class PlayerMovement : MonoBehaviour {
             Debug.Log("Block Found");
             Block climbBlock = coll.gameObject.GetComponent<Block>();
             Debug.Log(!IsGrounded() + ": " + climbBlock.isClimbable);
-            if (!IsGrounded() && climbBlock.isClimbable == true && rb2d.velocity.y > 0)
+            if (!IsGrounded() && climbBlock.isClimbable == true && jump)
             {
                 Debug.Log("Climbing");
+                ani.SetTrigger("Climbed");
                 StartCoroutine("climbMove", coll.gameObject);
             }
         }
