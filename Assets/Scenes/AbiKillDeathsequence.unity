@@ -1803,7 +1803,7 @@ GameObject:
   - component: {fileID: 1634473162}
   - component: {fileID: 1634473161}
   - component: {fileID: 1634473164}
-  m_Layer: 10
+  m_Layer: 11
   m_Name: New Sprite
   m_TagString: Spike
   m_Icon: {fileID: 0}
@@ -1878,7 +1878,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
@@ -2122,7 +2122,7 @@ ParticleSystemRenderer:
   m_PreserveUVs: 0
   m_IgnoreNormalsForChartDetection: 0
   m_ImportantGI: 0
-  m_SelectedEditorRenderState: 1
+  m_SelectedEditorRenderState: 0
   m_MinimumChartSize: 4
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
@@ -2201,7 +2201,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -492987508
+  randomSeed: 756006946
   InitialModule:
     serializedVersion: 3
     enabled: 1
