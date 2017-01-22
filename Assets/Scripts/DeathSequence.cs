@@ -6,6 +6,8 @@ public class DeathSequence : MonoBehaviour
 {
 
     public GameObject deathMovement;
+    
+  
 
     AudioSource audio;
     Rigidbody2D rb2d;
@@ -14,7 +16,7 @@ public class DeathSequence : MonoBehaviour
     void Start()
     {
 
-        audio = GetComponent<AudioSource>();
+       // audio = GetComponent<AudioSource>();
         rb2d = GetComponent<Rigidbody2D>();
 
     }
@@ -30,10 +32,16 @@ public class DeathSequence : MonoBehaviour
     public void Die()
     {
 
-        Physics2D.IgnoreLayerCollision(8, 10, true);
-       // Player.GetComponent<Collider2D>().enabled = false;
-        //Player.GetComponent<Collider2D>().enabled = true;
-        //Debug.Log("dropped");
+        int mask = 0;
+        mask |= (1 << LayerMask.NameToLayer("Player"));
+        mask |= (1 << LayerMask.NameToLayer("Ground"));
+
+
+        mask = ~mask;
+
+        //Physics2D.IgnoreLayerCollision(8, 11, true);
+
+
 
         Destroy(gameObject);
 
