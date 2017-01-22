@@ -14,7 +14,7 @@ public class Block : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-		if(visibility > 0 )
+		if(visibility < 0 )
         {
             visibility -= 170 * Time.deltaTime;
             //Debug.Log(visibility);

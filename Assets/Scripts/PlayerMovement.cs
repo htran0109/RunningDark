@@ -11,7 +11,6 @@ public class PlayerMovement : MonoBehaviour {
     private float distToGround;
     private float horzSize;
     private bool facingRight;
-    private bool lastDir;
 
     private CircleCollider2D cc;
     private BoxCollider2D bb;
@@ -48,18 +47,19 @@ public class PlayerMovement : MonoBehaviour {
                 {
                     float horz = Input.GetAxis("Horizontal");
                     rb2d.velocity = new Vector2(horz * speed, rb2d.velocity.y);
-                    lastDir = facingRight;
                 }
                 else
                 {
                     float horz = Input.GetAxis("Horizontal");
-                    if(horz < 0 != facingRight)
+                    if(horz < 0 != rb2d.velocity.x < 0)
                     {
+                        Debug.Log("Slowing Air" + rb2d.velocity);
                         rb2d.velocity = new Vector2(rb2d.velocity.x - (rb2d.velocity.x * .5f * Time.deltaTime), rb2d.velocity.y);
                     }
                     else
                     {
-                        rb2d.velocity = new Vector2(horz * speed, rb2d.velocity.y);
+                        Debug.Log("Speeding Air");
+                        rb2d.velocity = new Vector2(rb2d.velocity.x + Mathf.Min((1/rb2d.velocity.x * 10f * Time.deltaTime), speed/4), rb2d.velocity.y);
                     }
                 }
             
