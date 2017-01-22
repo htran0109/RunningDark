@@ -280,6 +280,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0951fd5e48f9808429ec7af35daaf7da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetAlpha: 0
+  startAlpha: 0
+  startTime: 0
+  fadeInTime: 0.1
+  fadeOutTime: 1.5
   isClimbable: 0
 --- !u!114 &114252487604437006
 MonoBehaviour:
@@ -292,6 +297,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0951fd5e48f9808429ec7af35daaf7da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetAlpha: 0
+  startAlpha: 0
+  startTime: 0
+  fadeInTime: 0.1
+  fadeOutTime: 1.5
   isClimbable: 0
 --- !u!114 &114448369075272330
 MonoBehaviour:
@@ -304,6 +314,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0951fd5e48f9808429ec7af35daaf7da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetAlpha: 0
+  startAlpha: 0
+  startTime: 0
+  fadeInTime: 0.1
+  fadeOutTime: 1.5
   isClimbable: 1
 --- !u!114 &114597451487972554
 MonoBehaviour:
@@ -316,6 +331,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0951fd5e48f9808429ec7af35daaf7da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetAlpha: 0
+  startAlpha: 0
+  startTime: 0
+  fadeInTime: 0.1
+  fadeOutTime: 1.5
   isClimbable: 0
 --- !u!114 &114721674384014430
 MonoBehaviour:
@@ -328,6 +348,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0951fd5e48f9808429ec7af35daaf7da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetAlpha: 0
+  startAlpha: 0
+  startTime: 0
+  fadeInTime: 0.1
+  fadeOutTime: 1.5
   isClimbable: 1
 --- !u!212 &212126606458189766
 SpriteRenderer:

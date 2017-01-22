@@ -188,7 +188,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1535878727501606}
   m_LocalRotation: {x: 0, y: 0, z: 0.7071068, w: 0.7071068}
-  m_LocalPosition: {x: -1.5, y: 4.66, z: 0}
+  m_LocalPosition: {x: 27.7, y: 4.4415035, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4258072413278976}
@@ -280,6 +280,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0951fd5e48f9808429ec7af35daaf7da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetAlpha: 0
+  startAlpha: 0
+  startTime: 0
+  fadeInTime: 0.1
+  fadeOutTime: 1
   isClimbable: 0
 --- !u!114 &114086476455370004
 MonoBehaviour:
@@ -292,6 +297,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0951fd5e48f9808429ec7af35daaf7da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetAlpha: 0
+  startAlpha: 0
+  startTime: 0
+  fadeInTime: 0.1
+  fadeOutTime: 1
   isClimbable: 0
 --- !u!114 &114264728786994562
 MonoBehaviour:
@@ -304,6 +314,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0951fd5e48f9808429ec7af35daaf7da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetAlpha: 0
+  startAlpha: 0
+  startTime: 0
+  fadeInTime: 0.1
+  fadeOutTime: 1
   isClimbable: 0
 --- !u!114 &114475678589469718
 MonoBehaviour:
@@ -316,6 +331,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0951fd5e48f9808429ec7af35daaf7da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetAlpha: 0
+  startAlpha: 0
+  startTime: 0
+  fadeInTime: 0.1
+  fadeOutTime: 1
   isClimbable: 0
 --- !u!114 &114826351155442650
 MonoBehaviour:
@@ -328,6 +348,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0951fd5e48f9808429ec7af35daaf7da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetAlpha: 0
+  startAlpha: 0
+  startTime: 0
+  fadeInTime: 0.1
+  fadeOutTime: 1
   isClimbable: 0
 --- !u!212 &212399594099470212
 SpriteRenderer:
