@@ -61,6 +61,7 @@ public class Ping : MonoBehaviour {
                 {
                     ammo -= largePingCost;
                     Instantiate(largePingSprite, transform.position, Quaternion.identity);
+                    Debug.Log("Making trigger");
                     GameObject triggerPing = Instantiate(enemyPing, transform.position, Quaternion.identity);
                     triggerPing.tag = "LargePing";
                     sfx.clip = largePing;
@@ -76,7 +77,7 @@ public class Ping : MonoBehaviour {
 
                 charge = 0;
             }
-            else if(charge > 0)
+            else if(charge > .05)
             {
                 if(ammo >= smallPingCost)
                 {
@@ -97,6 +98,7 @@ public class Ping : MonoBehaviour {
                         Instantiate(smallPingSprite, new Vector3(transform.position.x - 1, transform.position.y, transform.position.z),
                                          rot);
                     }
+                    Debug.Log("Making trigger");
                     GameObject triggerPing = Instantiate(enemyPing, transform.position, Quaternion.identity);
                     triggerPing.tag = "SmallPing";
                     sfx.clip = smallPing;

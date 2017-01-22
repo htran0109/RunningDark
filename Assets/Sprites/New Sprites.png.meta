@@ -1,6 +1,6 @@
 fileFormatVersion: 2
 guid: d91898e623b4302438f42216d9e86cb5
-timeCreated: 1485080069
+timeCreated: 1485104696
 licenseType: Free
 TextureImporter:
   fileIDToRecycleName:
@@ -82,12 +82,12 @@ TextureImporter:
       name: New Sprites_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 3536
-        width: 500
-        height: 560
+        x: 37
+        y: 3627
+        width: 438
+        height: 429
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -95,12 +95,12 @@ TextureImporter:
       name: New Sprites_1
       rect:
         serializedVersion: 2
-        x: 500
-        y: 3536
-        width: 500
-        height: 560
+        x: 555
+        y: 3635
+        width: 426
+        height: 426
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -108,12 +108,12 @@ TextureImporter:
       name: New Sprites_2
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 3536
-        width: 500
-        height: 560
+        x: 1067
+        y: 3627
+        width: 426
+        height: 336
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -121,12 +121,12 @@ TextureImporter:
       name: New Sprites_3
       rect:
         serializedVersion: 2
-        x: 1500
-        y: 3536
-        width: 500
-        height: 560
+        x: 1645
+        y: 3645
+        width: 296
+        height: 388
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -134,12 +134,12 @@ TextureImporter:
       name: New Sprites_4
       rect:
         serializedVersion: 2
-        x: 0
-        y: 2976
-        width: 500
-        height: 560
+        x: 73
+        y: 3237
+        width: 399
+        height: 236
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -147,12 +147,12 @@ TextureImporter:
       name: New Sprites_5
       rect:
         serializedVersion: 2
-        x: 500
-        y: 2976
-        width: 500
-        height: 560
+        x: 581
+        y: 3141
+        width: 374
+        height: 332
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -160,12 +160,12 @@ TextureImporter:
       name: New Sprites_6
       rect:
         serializedVersion: 2
-        x: 1000
-        y: 2976
-        width: 500
-        height: 560
+        x: 1160
+        y: 3111
+        width: 240
+        height: 394
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -173,12 +173,12 @@ TextureImporter:
       name: New Sprites_7
       rect:
         serializedVersion: 2
-        x: 1500
-        y: 2976
-        width: 500
-        height: 560
+        x: 1605
+        y: 3160
+        width: 376
+        height: 335
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
@@ -186,12 +186,12 @@ TextureImporter:
       name: New Sprites_8
       rect:
         serializedVersion: 2
-        x: 2000
-        y: 2976
-        width: 500
-        height: 560
+        x: 2095
+        y: 3237
+        width: 396
+        height: 236
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       tessellationDetail: 0
