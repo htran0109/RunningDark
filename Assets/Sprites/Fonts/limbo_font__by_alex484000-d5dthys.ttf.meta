@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: e78636fe303208d479161902860850c2
+timeCreated: 1485114253
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: LIMBO
+  fontNames:
+  - LIMBO
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
