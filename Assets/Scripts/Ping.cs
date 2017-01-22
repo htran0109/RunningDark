@@ -7,6 +7,7 @@ public class Ping : MonoBehaviour {
 
     public RectTransform canvas;
     public RectTransform ammoBar;
+    public RectTransform ammoBox;
     public Image ammoImage;
     public Image ammoContainer;
 
@@ -42,7 +43,7 @@ public class Ping : MonoBehaviour {
         //newRect.xMax = (maxCapacity - ammo) / (float)maxCapacity
         Color barColor = Color.Lerp(Color.red, Color.green, ammo / (float)maxCapacity);
         barColor.a = 0.5f;
-        ammoBar.sizeDelta = new Vector2((ammo - maxCapacity) / (float)maxCapacity * canvas.rect.width, 40);
+        ammoBar.sizeDelta = new Vector2((ammo - maxCapacity) / (float)maxCapacity * ammoBox.rect.width, 1);
         ammoImage.color = barColor;
         
 	}
