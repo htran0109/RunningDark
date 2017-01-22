@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
@@ -26,7 +27,7 @@ public class GameManager : MonoBehaviour {
 		if(instance != null)
         {
             Destroy(instance.gameObject);
-            Debug.LogError("Singleton Goofed");
+            Debug.Log("Singleton Goofed");
         }
         instance = this;
 	}
@@ -35,8 +36,10 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 		if(gameover)
         {
+            setGameOverScreen(true);
             if (Input.GetKeyDown("r"))
             {
+                setGameOverScreen(false);
                 sfx.clip = reset;
                 sfx.Play();
                 player = GameObject.FindGameObjectWithTag("Player");
@@ -59,7 +62,20 @@ public class GameManager : MonoBehaviour {
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene("LevelOne");
+            setGameOverScreen(false);
         }
         
 	}
+
+    void setGameOverScreen(bool gameover)
+    {
+        GameObject go = GameObject.FindGameObjectWithTag("GameOverText");
+        go.GetComponent<Image>().enabled = gameover;
+        Text[] texts = go.GetComponentsInChildren<Text>();
+        foreach(Text text in texts)
+        {
+            text.enabled = gameover;
+        }
+
+    }
 }
