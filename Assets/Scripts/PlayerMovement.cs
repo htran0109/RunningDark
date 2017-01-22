@@ -7,7 +7,8 @@ public class PlayerMovement : MonoBehaviour {
     public float speed = 5;
     public float animSpeedThresh = 2;
     public float jumpSpeed = 10;
-
+    public float airSpeed = 5;
+    
     private float distToGround;
     private float horzSize;
     private bool facingRight;
@@ -51,19 +52,22 @@ public class PlayerMovement : MonoBehaviour {
                 else
                 {
                     float horz = Input.GetAxis("Horizontal");
+                    
                     if(horz < 0 != rb2d.velocity.x < 0)
                     {
                         Debug.Log("Slowing Air" + rb2d.velocity);
-                        rb2d.velocity = new Vector2(rb2d.velocity.x - (rb2d.velocity.x * 2f * Time.deltaTime), rb2d.velocity.y);
+                        //rb2d.velocity = new Vector2(rb2d.velocity.x / (1 + Time.deltaTime), rb2d.velocity.y);
+                        rb2d.AddForce(new Vector2(horz * airSpeed, 0));
+
                     }
-                    else if(horz == 0 || rb2d.velocity.x == 0) {
+                    /*else if(horz == 0 || rb2d.velocity.x == 0) {
 
                     }
                     else if( horz < 0 == rb2d.velocity.x <0)
                     {
                         Debug.Log("Speeding Air");
                         rb2d.velocity = new Vector2(rb2d.velocity.x + Mathf.Min((1/rb2d.velocity.x * 10f * Time.deltaTime), speed/4), rb2d.velocity.y);
-                    }
+                    }*/
                 }
             
 
@@ -166,7 +170,7 @@ public class PlayerMovement : MonoBehaviour {
             yield return null;
         }
         cc.enabled = true;
-        bb.enabled = false;
+        bb.enabled = true;
         climbing = false;
     }
 }
