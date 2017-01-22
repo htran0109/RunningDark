@@ -34,9 +34,10 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if(gameover)
+        if (gameover)
         {
             setGameOverScreen(true);
+        }
             if (Input.GetKeyDown("r"))
             {
                 setGameOverScreen(false);
@@ -58,7 +59,7 @@ public class GameManager : MonoBehaviour {
                 
                 gameover = false;
             }
-        }
+        //}
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene("LevelOne");

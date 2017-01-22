@@ -22,7 +22,7 @@ public class PointAtNearestCheckpoint : MonoBehaviour {
 
         transform.LookAt(target);
         Transform childTrans = transform.GetChild(0).transform;
-        Debug.Log("Dist" + Vector3.Magnitude(transform.position - target));
+        //Debug.Log("Dist" + Vector3.Magnitude(transform.position - target));
         if (Vector3.Magnitude(transform.position - target) < 3)
         {
             float scale = Vector3.Magnitude(transform.position - target) / 3.0f;
