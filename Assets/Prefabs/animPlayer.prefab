@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 58473866891155308}
   - component: {fileID: 114660310199199484}
   - component: {fileID: 95171597589474112}
+  - component: {fileID: 114535504308340078}
   m_Layer: 8
   m_Name: animPlayer
   m_TagString: Player
@@ -71,7 +72,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1142281126095840}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1.74, y: 3.73, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4092393848535790}
@@ -191,6 +192,19 @@ MonoBehaviour:
   speed: 5
   animSpeedThresh: 0.3
   jumpSpeed: 10
+--- !u!114 &114535504308340078
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1142281126095840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c83fb29f50e910b4ebe9a4326eb5558b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathMovement: {fileID: 0}
+  Player: {fileID: 0}
 --- !u!114 &114660310199199484
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -202,10 +216,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a0f0274d7cd01a41aa4d60308f2329a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  ammoBar: {fileID: 0}
+  ammoImage: {fileID: 0}
+  ammoContainer: {fileID: 0}
+  maxCapacity: 15
+  smallPingCost: 1
+  largePingCost: 3
   smallPingSprite: {fileID: 4364653468439928, guid: 5d72ea2050d64104998da28b765968ee,
     type: 2}
   largePingSprite: {fileID: 4034611800884436, guid: d3c2a40f45b24b646ad6041684c69762,
     type: 2}
+  enemyPing: {fileID: 1865722114124748, guid: f97c8c9d702ba2c45af340510f0a2653, type: 2}
 --- !u!124 &124628436117732376
 Behaviour:
   m_ObjectHideFlags: 1
