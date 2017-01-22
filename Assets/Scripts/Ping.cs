@@ -50,80 +50,84 @@ public class Ping : MonoBehaviour {
 
     void readKeys()
     {
-        if(Input.GetButton("Fire1"))
+        if(!GameManager.instance.gameover)
         {
-            charge += Time.deltaTime;
-        }
-        if(Input.GetButtonUp("Fire1"))
-        {
-            if(charge > .4f)
+            if (Input.GetButton("Fire1"))
             {
-                if(ammo >= largePingCost)
-                {
-                    ammo -= largePingCost;
-                    Instantiate(largePingSprite, transform.position, Quaternion.identity);
-                    Debug.Log("Making trigger");
-                    GameObject triggerPing = Instantiate(enemyPing, transform.position, Quaternion.identity);
-                    triggerPing.tag = "LargePing";
-                    sfx.clip = largePing;
-                    sfx.Play();
-                }
-                else
-                {
-                    //out of charge effect
-                    StartCoroutine("FlashBar");
-                    sfx.clip = noEnergy;
-                    sfx.Play();
-                }
-
-                charge = 0;
+                charge += Time.deltaTime;
             }
-            else if(charge > .05)
+            if (Input.GetButtonUp("Fire1"))
             {
-                if(ammo >= smallPingCost)
+                if (charge > .4f)
                 {
-                    ammo -= smallPingCost;
-                    Quaternion rot = smallPingSprite.transform.rotation;
-                    if (direction == FACE_LEFT)
+                    if (ammo >= largePingCost)
                     {
-                        Debug.Log("FLIPPED PING");
-                        rot.eulerAngles = new Vector3(0, 0, -90);
-                    }
-                    if (direction == FACE_RIGHT)
-                    {
-                        Instantiate(smallPingSprite, new Vector3(transform.position.x + 1, transform.position.y, transform.position.z),
-                                                                 rot);
+                        ammo -= largePingCost;
+                        Instantiate(largePingSprite, transform.position, Quaternion.identity);
+                        Debug.Log("Making trigger");
+                        GameObject triggerPing = Instantiate(enemyPing, transform.position, Quaternion.identity);
+                        triggerPing.tag = "LargePing";
+                        sfx.clip = largePing;
+                        sfx.Play();
                     }
                     else
                     {
-                        Instantiate(smallPingSprite, new Vector3(transform.position.x - 1, transform.position.y, transform.position.z),
-                                         rot);
+                        //out of charge effect
+                        StartCoroutine("FlashBar");
+                        sfx.clip = noEnergy;
+                        sfx.Play();
                     }
-                    Debug.Log("Making trigger");
-                    GameObject triggerPing = Instantiate(enemyPing, transform.position, Quaternion.identity);
-                    triggerPing.tag = "SmallPing";
-                    sfx.clip = smallPing;
-                    sfx.Play();
+
+                    charge = 0;
                 }
-                else
+                else if (charge > .05)
                 {
-                    //out of charge effect
-                    StartCoroutine("FlashBar");
-                    sfx.clip = noEnergy;
-                    sfx.Play();
+                    if (ammo >= smallPingCost)
+                    {
+                        ammo -= smallPingCost;
+                        Quaternion rot = smallPingSprite.transform.rotation;
+                        if (direction == FACE_LEFT)
+                        {
+                            Debug.Log("FLIPPED PING");
+                            rot.eulerAngles = new Vector3(0, 0, -90);
+                        }
+                        if (direction == FACE_RIGHT)
+                        {
+                            Instantiate(smallPingSprite, new Vector3(transform.position.x + 1, transform.position.y, transform.position.z),
+                                                                     rot);
+                        }
+                        else
+                        {
+                            Instantiate(smallPingSprite, new Vector3(transform.position.x - 1, transform.position.y, transform.position.z),
+                                             rot);
+                        }
+                        Debug.Log("Making trigger");
+                        GameObject triggerPing = Instantiate(enemyPing, transform.position, Quaternion.identity);
+                        triggerPing.tag = "SmallPing";
+                        sfx.clip = smallPing;
+                        sfx.Play();
+                    }
+                    else
+                    {
+                        //out of charge effect
+                        StartCoroutine("FlashBar");
+                        sfx.clip = noEnergy;
+                        sfx.Play();
+                    }
+
                 }
-                
+                charge = 0;
             }
-            charge = 0;
+            if (Input.GetAxis("Horizontal") < 0)
+            {
+                direction = FACE_LEFT;
+            }
+            if (Input.GetAxis("Horizontal") > 0)
+            {
+                direction = FACE_RIGHT;
+            }
         }
-        if(Input.GetAxis("Horizontal") < 0)
-        {
-            direction = FACE_LEFT;
-        }
-        if(Input.GetAxis("Horizontal") > 0)
-        {
-            direction = FACE_RIGHT;
-        } 
+        
     }
 
     IEnumerator FlashBar()

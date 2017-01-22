@@ -21,6 +21,18 @@ public class PointAtNearestCheckpoint : MonoBehaviour {
         float progress = (Time.time - startTime) / duration;
 
         transform.LookAt(target);
+        Transform childTrans = transform.GetChild(0).transform;
+        Debug.Log("Dist" + Vector3.Magnitude(transform.position - target));
+        if (Vector3.Magnitude(transform.position - target) < 3)
+        {
+            float scale = Vector3.Magnitude(transform.position - target) / 3.0f;
+            
+            childTrans.localScale = new Vector3(scale, scale, scale);
+        }
+        else
+        {
+            childTrans.localScale = new Vector3(1, 1, 1);
+        }
     }
 
     void point()

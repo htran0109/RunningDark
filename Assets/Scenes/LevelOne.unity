@@ -327,16 +327,6 @@ Prefab:
       propertyPath: m_Name
       value: Checkpoint (3)
       objectReference: {fileID: 0}
-    - target: {fileID: 114419998802824242, guid: abe765970231d5b498431373661bf924,
-        type: 2}
-      propertyPath: pointer
-      value: 
-      objectReference: {fileID: 871104144}
-    - target: {fileID: 114419998802824242, guid: abe765970231d5b498431373661bf924,
-        type: 2}
-      propertyPath: ping
-      value: 
-      objectReference: {fileID: 1869531841}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abe765970231d5b498431373661bf924, type: 2}
   m_IsPrefabParent: 0
@@ -1271,7 +1261,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4618020995558400, guid: abe765970231d5b498431373661bf924, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 18.75
+      value: 21.81
       objectReference: {fileID: 0}
     - target: {fileID: 4618020995558400, guid: abe765970231d5b498431373661bf924, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1301,16 +1291,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 118
       objectReference: {fileID: 0}
-    - target: {fileID: 114419998802824242, guid: abe765970231d5b498431373661bf924,
-        type: 2}
-      propertyPath: pointer
-      value: 
-      objectReference: {fileID: 871104144}
-    - target: {fileID: 114419998802824242, guid: abe765970231d5b498431373661bf924,
-        type: 2}
-      propertyPath: ping
-      value: 
-      objectReference: {fileID: 1869531841}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abe765970231d5b498431373661bf924, type: 2}
   m_IsPrefabParent: 0
@@ -3063,16 +3043,6 @@ Prefab:
       propertyPath: m_Name
       value: Checkpoint (1)
       objectReference: {fileID: 0}
-    - target: {fileID: 114419998802824242, guid: abe765970231d5b498431373661bf924,
-        type: 2}
-      propertyPath: pointer
-      value: 
-      objectReference: {fileID: 871104144}
-    - target: {fileID: 114419998802824242, guid: abe765970231d5b498431373661bf924,
-        type: 2}
-      propertyPath: ping
-      value: 
-      objectReference: {fileID: 1869531841}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abe765970231d5b498431373661bf924, type: 2}
   m_IsPrefabParent: 0
@@ -3164,12 +3134,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5dd2abd2d24986a459e491dd602343c1, type: 2}
   m_IsPrefabParent: 0
---- !u!114 &871104144 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114161597705935662, guid: bae685a4c0c19f54daf286b4d1925df9,
-    type: 2}
-  m_PrefabInternal: {fileID: 1744781980}
-  m_Script: {fileID: 11500000, guid: dc0e64488ae920740adafcbd4f449e6c, type: 3}
 --- !u!1001 &887297332
 Prefab:
   m_ObjectHideFlags: 0
@@ -4742,16 +4706,6 @@ Prefab:
       propertyPath: m_Name
       value: Checkpoint (2)
       objectReference: {fileID: 0}
-    - target: {fileID: 114419998802824242, guid: abe765970231d5b498431373661bf924,
-        type: 2}
-      propertyPath: ping
-      value: 
-      objectReference: {fileID: 1869531841}
-    - target: {fileID: 114419998802824242, guid: abe765970231d5b498431373661bf924,
-        type: 2}
-      propertyPath: pointer
-      value: 
-      objectReference: {fileID: 871104144}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abe765970231d5b498431373661bf924, type: 2}
   m_IsPrefabParent: 0
@@ -5752,12 +5706,6 @@ GameObject:
   m_PrefabParentObject: {fileID: 1142281126095840, guid: bae685a4c0c19f54daf286b4d1925df9,
     type: 2}
   m_PrefabInternal: {fileID: 1744781980}
---- !u!114 &1869531841 stripped
-MonoBehaviour:
-  m_PrefabParentObject: {fileID: 114660310199199484, guid: bae685a4c0c19f54daf286b4d1925df9,
-    type: 2}
-  m_PrefabInternal: {fileID: 1744781980}
-  m_Script: {fileID: 11500000, guid: 0a0f0274d7cd01a41aa4d60308f2329a, type: 3}
 --- !u!1001 &1873734083
 Prefab:
   m_ObjectHideFlags: 0
