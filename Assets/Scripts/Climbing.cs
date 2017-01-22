@@ -17,7 +17,7 @@ public class Climbing : MonoBehaviour {
 
     void OnTriggerEnter2D (Collider2D coll)
     {
-        Debug.Log(coll.gameObject.name + "Hit by player");
+        //Debug.Log(coll.gameObject.name + "Hit by player");
         if (coll.gameObject.tag == "Ground")
         {
             Debug.Log("Block Found");
@@ -44,7 +44,7 @@ public class Climbing : MonoBehaviour {
         Vector3 endPos = new Vector3(obj.transform.position.x, obj.transform.position.y + heightToGround + playMov.distToGround);
         for (float i = 0; i < 50; i++)
         {
-            Debug.Log("Still Climbing");
+            //Debug.Log("Still Climbing");
             playMov.transform.position = Vector3.Lerp(currPos, endPos, i / 49);
             yield return null;
         }

@@ -21,7 +21,6 @@ public class PlayerMovement : MonoBehaviour {
 
     private bool jump = false;
     public bool climbing = false;
-    private bool inWall = false;
 
     public AudioSource moveSfxSrc;
     public AudioClip walksfx;
@@ -120,12 +119,22 @@ public class PlayerMovement : MonoBehaviour {
     public bool IsGrounded()
     {
         Debug.DrawRay(transform.position, -Vector3.up * (distToGround + 0.1f), Color.red, 1);
-        Debug.DrawRay(transform.position + new Vector3(horzSize, 0, 0), -Vector3.up * (distToGround + 0.1f), Color.red, 0.2f);
-        Debug.DrawRay(transform.position - new Vector3(horzSize, 0, 0), -Vector3.up * (distToGround + 0.1f), Color.red, 0.2f);
-        int layerMask = (1 << LayerMask.NameToLayer("Player")) | (1 << LayerMask.NameToLayer("GroundPing")) | (1 << LayerMask.NameToLayer("Enemy")) | (1 << LayerMask.NameToLayer("PickUp")); ;
+        Debug.DrawRay(transform.position + new Vector3(horzSize - 0.1f, -distToGround, 0), -Vector3.up * (0.1f), Color.red, 0.2f);
+        Debug.DrawRay(transform.position - new Vector3(horzSize - 0.1f, distToGround, 0), -Vector3.up * (0.1f), Color.red, 0.2f);
+        int layerMask = (1 << LayerMask.NameToLayer("Player")) | (1 << LayerMask.NameToLayer("GroundPing")) | (1 << LayerMask.NameToLayer("Enemy")) | (1 << LayerMask.NameToLayer("PickUp")| ( 1<< LayerMask.NameToLayer("Hat"))) ;
         layerMask = ~layerMask;
-        bool ret1 = Physics2D.Raycast(transform.position + new Vector3(horzSize - 0.07f, 0, 0), -Vector3.up, distToGround + 0.1f, layerMask);
-        bool ret2 = Physics2D.Raycast(transform.position - new Vector3(horzSize - 0.07f, 0, 0), -Vector3.up, distToGround + 0.1f, layerMask);
+        bool ret1 = Physics2D.Raycast(transform.position + new Vector3(horzSize - 0.1f, -distToGround, 0), -Vector3.up, 0.1f, layerMask);
+        bool ret2 = Physics2D.Raycast(transform.position - new Vector3(horzSize - 0.1f, distToGround, 0), -Vector3.up, 0.1f, layerMask);
+        RaycastHit2D groundHit  = Physics2D.Raycast(transform.position - new Vector3(horzSize - 0.1f, 0, 0), -Vector3.up, distToGround + 0.1f, layerMask);
+        RaycastHit2D groundHit2 = Physics2D.Raycast(transform.position + new Vector3(horzSize - 0.1f, 0, 0), -Vector3.up, distToGround + 0.1f, layerMask);
+        if (groundHit) {
+            Debug.Log(groundHit.collider.gameObject);
+            
+        }
+        if (groundHit2)
+        {
+            Debug.Log(groundHit2.collider.gameObject);
+        }
         ani.SetBool("Grounded", ret1 || ret2);
         return ret1 || ret2;
     }
@@ -160,37 +169,7 @@ public class PlayerMovement : MonoBehaviour {
         facingRight = !facingRight;
     }
 
-    void OnCollisionStay2D(Collision2D coll)
-    {
-        
-        if(!IsGrounded())
-        {
-            Debug.Log("Collision detected");
-            inWall = true;
-            if(coll.transform.position.x > gameObject.transform.position.x)
-            {
-                rb2d.velocity = new Vector2(-.2f, rb2d.velocity.y);
-            }
-            else
-            {
-                rb2d.velocity = new Vector2(.2f, rb2d.velocity.y);
-            }
-            
-        }
-        /*Debug.Log(coll.gameObject.name + "Hit by player");
-        if(coll.gameObject.tag == "Ground")
-        {
-            Debug.Log("Block Found");
-            Block climbBlock = coll.gameObject.GetComponent<Block>();
-            Debug.Log(!IsGrounded() + ": " + climbBlock.isClimbable);
-            if (!IsGrounded() && climbBlock.isClimbable == true && jump)
-            {
-                Debug.Log("Climbing");
-                ani.SetTrigger("Climbed");
-                StartCoroutine("climbMove", coll.gameObject);
-            }
-        }*/
-    }
+
 
 
     /*IEnumerator climbMove(GameObject obj)
