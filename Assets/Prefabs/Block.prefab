@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1767113891201516}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 11.6, y: -1.68, z: 0}
+  m_LocalPosition: {x: 28.678825, y: 8.222183, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -70,9 +70,9 @@ MonoBehaviour:
   targetAlpha: 0
   startAlpha: 0
   startTime: 0
-  fadeInTime: 0.1
+  fadeInTime: 0.19
   fadeOutTime: 1.5
-  isClimbable: 0
+  isClimbable: 1
 --- !u!212 &212814285791786846
 SpriteRenderer:
   m_ObjectHideFlags: 1

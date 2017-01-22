@@ -21,7 +21,7 @@ public class ghostStun : MonoBehaviour {
     {
         foreach (Transform child in transform)
         {
-            child.gameObject.SetActiveRecursively(false);
+            gameObject.SetActive(false);
         }
     }
 
@@ -29,7 +29,7 @@ public class ghostStun : MonoBehaviour {
     {
         foreach (Transform child in transform)
         {
-            child.gameObject.SetActiveRecursively(true);
+            gameObject.SetActive(true);
         }
     }
 

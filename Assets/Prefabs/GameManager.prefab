@@ -134,6 +134,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraObj: {fileID: 0}
   player: {fileID: 1142281126095840, guid: bae685a4c0c19f54daf286b4d1925df9, type: 2}
+  respParticle: {fileID: 1806492885878674, guid: 2ffd1c3a9cad35c40806d285d138d68a,
+    type: 2}
   gameover: 0
   checkpoint: {x: 1.74, y: 3.73, z: 0}
-  reset: {fileID: 0}
+  reset: {fileID: 8300000, guid: 7e3f268d1ede28c479e789cab2f06904, type: 3}

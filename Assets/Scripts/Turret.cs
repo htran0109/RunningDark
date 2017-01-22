@@ -104,6 +104,7 @@ public class Turret : MonoBehaviour {
             if(hit.collider.gameObject.tag == "Player")
             {
                 Debug.Log("Hit Player");
+                player.GetComponent<DeathSequence>().Invoke("Die", 0f);
             }
             Instantiate(spark, hit.point, Quaternion.identity);
         }

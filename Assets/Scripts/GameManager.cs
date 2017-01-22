@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour {
     public static GameManager instance;
     public GameObject cameraObj;
     public GameObject player;
+    public GameObject respParticle;
     public bool gameover = false;
     public Vector3 checkpoint = new Vector3(0,0,0);
     public AudioClip reset;
@@ -42,6 +43,13 @@ public class GameManager : MonoBehaviour {
                 
                 player.transform.position = checkpoint;
                 cameraObj.transform.position = checkpoint - new Vector3(0,0,10);
+                Instantiate(respParticle, player.transform.position, Quaternion.identity);
+                player.GetComponent<BoxCollider2D>().enabled = true;
+                player.GetComponent<CircleCollider2D>().enabled = true;
+                Rigidbody2D rb2d = player.GetComponent<Rigidbody2D>();
+                rb2d.isKinematic = false;
+                rb2d.velocity = Vector2.zero;
+                
                 gameover = false;
             }
         }

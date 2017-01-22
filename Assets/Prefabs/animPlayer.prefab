@@ -652,6 +652,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathMovement: {fileID: 0}
   cameraObj: {fileID: 1848578606134724}
+  deathSpark: {fileID: 1000010355441670, guid: 02a509a7fa70ed740ba4197e20c5d32d, type: 2}
   death: {fileID: 8300000, guid: 76b7a83baacbdd44d99fb0b57dea7bb4, type: 3}
   Player: {fileID: 0}
 --- !u!114 &114660310199199484

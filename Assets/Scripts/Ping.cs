@@ -87,9 +87,16 @@ public class Ping : MonoBehaviour {
                         Debug.Log("FLIPPED PING");
                         rot.eulerAngles = new Vector3(0, 0, -90);
                     }
-
-                    Instantiate(smallPingSprite, new Vector3(transform.position.x + 1, transform.position.y, transform.position.z),
-                                                             rot);
+                    if (direction == FACE_RIGHT)
+                    {
+                        Instantiate(smallPingSprite, new Vector3(transform.position.x + 1, transform.position.y, transform.position.z),
+                                                                 rot);
+                    }
+                    else
+                    {
+                        Instantiate(smallPingSprite, new Vector3(transform.position.x - 1, transform.position.y, transform.position.z),
+                                         rot);
+                    }
                     GameObject triggerPing = Instantiate(enemyPing, transform.position, Quaternion.identity);
                     triggerPing.tag = "SmallPing";
                     sfx.clip = smallPing;
