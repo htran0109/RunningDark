@@ -6,6 +6,7 @@ public class Checkpoint : MonoBehaviour {
 
     AudioSource sfx;
     BoxCollider2D bc;
+    public PointAtNearestCheckpoint pointer;
 
 	// Use this for initialization
 	void Start () {
@@ -40,6 +41,9 @@ public class Checkpoint : MonoBehaviour {
             transform.RotateAround(transform.position, Vector3.forward, 9.0f);
             yield return new WaitForSeconds(0.1f);
         }
+        gameObject.tag = "Untagged";
+        pointer.Invoke("point", 0.0f);
+
         Destroy(gameObject);
     }
 }

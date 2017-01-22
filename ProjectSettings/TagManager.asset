@@ -9,6 +9,7 @@ TagManager:
   - SmallPing
   - GroundPing
   - Ping
+  - CheckPoint
   layers:
   - Default
   - TransparentFX

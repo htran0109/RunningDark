@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212981517417720950}
   - component: {fileID: 114766123177636148}
   - component: {fileID: 61860229696481068}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: turret
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ MonoBehaviour:
   laser: {fileID: 1502544366144002, guid: 911ff1f6ffc00ec4da7d029a40128424, type: 2}
   spark: {fileID: 1509869393819566, guid: 7b16c65ae7fbbf041b3d52e4cb06142d, type: 2}
   burstFireDelay: 0.3
-  laserRange: 10
+  laserRange: 20
 --- !u!212 &212981517417720950
 SpriteRenderer:
   m_ObjectHideFlags: 1
