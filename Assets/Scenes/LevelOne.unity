@@ -4500,6 +4500,12 @@ Prefab:
       propertyPath: m_RootOrder
       value: 123
       objectReference: {fileID: 0}
+    - target: {fileID: 212814285791786846, guid: cfae27390041c0e44a683d638be6ccc3,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 8cf2f40b468c8fc4283a48658f23ebca,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: cfae27390041c0e44a683d638be6ccc3, type: 2}
   m_IsPrefabParent: 0
@@ -4883,6 +4889,18 @@ Prefab:
     - target: {fileID: 1341935951315322, guid: efd2f253315c8b34f80646613ad0ed51, type: 2}
       propertyPath: m_Name
       value: Enemy Ghost (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 1730403568239990, guid: efd2f253315c8b34f80646613ad0ed51, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1589374757417834, guid: efd2f253315c8b34f80646613ad0ed51, type: 2}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1341935951315322, guid: efd2f253315c8b34f80646613ad0ed51, type: 2}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: efd2f253315c8b34f80646613ad0ed51, type: 2}

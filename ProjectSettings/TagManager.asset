@@ -45,12 +45,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Default
-    uniqueID: 0
-    locked: 0
   - name: Enemy
     uniqueID: 206100039
     locked: 0
+  - name: Default
+    uniqueID: 0
+    locked: 0
   - name: Ground
     uniqueID: 2029058703
+    locked: 0
+  - name: UIFront
+    uniqueID: 1169923695
+    locked: 0
+  - name: UIBack
+    uniqueID: 2540003785
     locked: 0
