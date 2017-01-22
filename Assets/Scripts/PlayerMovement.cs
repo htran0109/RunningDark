@@ -121,6 +121,7 @@ public class PlayerMovement : MonoBehaviour {
             if (!IsGrounded() && climbBlock.isClimbable == true && rb2d.velocity.y > 0)
             {
                 Debug.Log("Climbing");
+                ani.SetTrigger("Climbed");
                 StartCoroutine("climbMove", coll.gameObject);
             }
         }
