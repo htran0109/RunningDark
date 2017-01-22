@@ -8,12 +8,16 @@ public class Checkpoint : MonoBehaviour {
     BoxCollider2D bc;
     public PointAtNearestCheckpoint pointer;
     public Ping ping;
+    ParticleSystem ps;
 
 	// Use this for initialization
 	void Start () {
         sfx = gameObject.GetComponent<AudioSource>();
         bc = gameObject.GetComponent<BoxCollider2D>();
-	}
+        ps = gameObject.GetComponentInChildren<ParticleSystem>();
+        ping = GameObject.FindGameObjectWithTag("Player").GetComponent<Ping>();
+        pointer = GameObject.FindGameObjectWithTag("Player").GetComponentInChildren<PointAtNearestCheckpoint>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -36,16 +40,12 @@ public class Checkpoint : MonoBehaviour {
         ping.ammo = ping.maxCapacity;
         bc.enabled = false;
         sfx.Play();
-        for(int i = 0; i < 10; i++)
-        {
-            float scale = 1.0f - (i / 10.0f);
-            transform.localScale = new Vector3(scale, scale, scale);
-            transform.RotateAround(transform.position, Vector3.forward, 9.0f);
-            yield return new WaitForSeconds(0.1f);
-        }
         gameObject.tag = "Untagged";
         pointer.Invoke("point", 0.0f);
+        ps.Stop();
+        
 
-        Destroy(gameObject);
+        Destroy(gameObject, 1.0f);
+        yield return null;
     }
 }
