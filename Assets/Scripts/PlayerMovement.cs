@@ -13,6 +13,7 @@ public class PlayerMovement : MonoBehaviour {
     private bool facingRight;
 
     private CircleCollider2D cc;
+    private BoxCollider2D bb;
     private Rigidbody2D rb2d;
     private Animator ani;
 
@@ -22,9 +23,10 @@ public class PlayerMovement : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         cc = gameObject.GetComponent<CircleCollider2D>();
+        bb = gameObject.GetComponent<BoxCollider2D>();
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         ani = gameObject.GetComponent<Animator>();
-        distToGround = cc.bounds.extents.y;
+        distToGround = cc.bounds.extents.y + bb.bounds.extents.y;
         horzSize = cc.bounds.extents.x;
         Debug.Log("dist to ground: " + distToGround);
 	}
@@ -129,6 +131,7 @@ public class PlayerMovement : MonoBehaviour {
         Debug.Log("In climbing method");
         climbing = true;
         cc.enabled = false;
+        bb.enabled = false;
         Vector3 currPos = transform.position;
         BoxCollider2D blockColl = obj.GetComponent<BoxCollider2D>();
         float heightToGround = blockColl.bounds.extents.y;
@@ -140,6 +143,7 @@ public class PlayerMovement : MonoBehaviour {
             yield return null;
         }
         cc.enabled = true;
+        bb.enabled = false;
         climbing = false;
     }
 }
