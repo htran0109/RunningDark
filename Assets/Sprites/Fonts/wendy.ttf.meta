@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: ded6cf03afe34324d9a27fe9d17d2ae8
+timeCreated: 1485115733
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: wendy
+  fontNames:
+  - wendy
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

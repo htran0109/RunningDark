@@ -15,8 +15,9 @@ public class PlayGame : MonoBehaviour {
 		
 	}
 
-    public static void play()
+    public void play()
     {
+        Debug.Log("Switching scenes");
         SceneManager.LoadScene("LevelOne");
         SceneManager.UnloadSceneAsync("Main Menu");
     }
