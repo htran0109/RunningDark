@@ -63,8 +63,8 @@ public class Ping : MonoBehaviour {
                     //out of charge effect
                     StartCoroutine("FlashBar");
                 }
-                
 
+                charge = 0;
             }
             else if(charge > 0)
             {

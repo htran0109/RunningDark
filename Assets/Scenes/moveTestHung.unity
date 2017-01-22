@@ -1821,6 +1821,12 @@ Prefab:
       propertyPath: m_Radius
       value: 0.29330787
       objectReference: {fileID: 0}
+    - target: {fileID: 114660310199199484, guid: bae685a4c0c19f54daf286b4d1925df9,
+        type: 2}
+      propertyPath: enemyPing
+      value: 
+      objectReference: {fileID: 1865722114124748, guid: f97c8c9d702ba2c45af340510f0a2653,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: bae685a4c0c19f54daf286b4d1925df9, type: 2}
   m_IsPrefabParent: 0
