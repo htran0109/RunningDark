@@ -67,6 +67,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0951fd5e48f9808429ec7af35daaf7da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  targetAlpha: 0
+  startAlpha: 0
+  startTime: 0
+  fadeInTime: 0.1
+  fadeOutTime: 1.5
   isClimbable: 0
 --- !u!212 &212814285791786846
 SpriteRenderer:

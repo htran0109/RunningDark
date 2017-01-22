@@ -92,6 +92,8 @@ MonoBehaviour:
   startScale: 3
   endScale: 4
   distance: 3
+  startAlpha: 0.3
+  endAlpha: 0.1
 --- !u!212 &212277843554514134
 SpriteRenderer:
   m_ObjectHideFlags: 1

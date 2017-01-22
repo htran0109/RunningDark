@@ -10,6 +10,7 @@ TagManager:
   - GroundPing
   - Ping
   - CheckPoint
+  - Enemy
   layers:
   - Default
   - TransparentFX
