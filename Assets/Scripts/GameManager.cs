@@ -37,6 +37,7 @@ public class GameManager : MonoBehaviour {
                 sfx.Play();
                 player = GameObject.FindGameObjectWithTag("Player");
                 player.GetComponent<SpriteRenderer>().enabled = true;
+                player.GetComponent<Ping>().ammo = player.GetComponent<Ping>().maxCapacity;
                 cameraObj.transform.SetParent(player.transform);
                 
                 player.transform.position = checkpoint;
