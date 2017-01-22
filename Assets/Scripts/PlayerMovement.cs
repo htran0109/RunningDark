@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour {
     private float distToGround;
     private float horzSize;
     private bool facingRight;
+    private bool lastDir;
 
     private CircleCollider2D cc;
     private BoxCollider2D bb;
@@ -35,18 +36,22 @@ public class PlayerMovement : MonoBehaviour {
 	void Update () {
         if(!GameManager.instance.gameover)
         {
-            if (IsGrounded() && !climbing)
+            if (!climbing)
             {
-                if (rb2d.velocity.y < 0)
+                if (rb2d.velocity.y < 0 && IsGrounded())
                 {
                     jump = false;
                 }
-                float horz = Input.GetAxis("Horizontal");
-                rb2d.velocity = new Vector2(horz * speed, rb2d.velocity.y);
+                if (IsGrounded()) { 
+                    float horz = Input.GetAxis("Horizontal");
+                    rb2d.velocity = new Vector2(horz * speed, rb2d.velocity.y);
+                    lastDir = facingRight;
+
+                }
 
                 // transform.Translate(horz * speed * Time.deltaTime, 0, 0);
 
-                if (Input.GetButtonDown("Jump"))
+                if (IsGrounded() && Input.GetButtonDown("Jump"))
                 {
                     Debug.Log("JUMP");
                     ani.SetTrigger("Jumped");
@@ -56,10 +61,10 @@ public class PlayerMovement : MonoBehaviour {
             }
             else
             {
-                if (!jump)
+                /*if (!jump)
                 {
                     rb2d.velocity = new Vector2(0, rb2d.velocity.y);
-                }
+                }*/
             }
         }
         
