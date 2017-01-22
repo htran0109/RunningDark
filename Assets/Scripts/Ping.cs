@@ -11,7 +11,7 @@ public class Ping : MonoBehaviour {
     public Image ammoContainer;
 
     public int maxCapacity = 15;
-    private int ammo;
+    public int ammo;
     public int smallPingCost = 1;
     public int largePingCost = 3;
 

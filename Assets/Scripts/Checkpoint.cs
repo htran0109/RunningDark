@@ -7,6 +7,7 @@ public class Checkpoint : MonoBehaviour {
     AudioSource sfx;
     BoxCollider2D bc;
     public PointAtNearestCheckpoint pointer;
+    public Ping ping;
 
 	// Use this for initialization
 	void Start () {
@@ -32,6 +33,7 @@ public class Checkpoint : MonoBehaviour {
 
     IEnumerator Collect()
     {
+        ping.ammo = ping.maxCapacity;
         bc.enabled = false;
         sfx.Play();
         for(int i = 0; i < 10; i++)
