@@ -17,6 +17,7 @@ public class PlayerMovement : MonoBehaviour {
     private BoxCollider2D bb;
     private Rigidbody2D rb2d;
     private Animator ani;
+    private SpriteRenderer sr;
 
     private bool jump = false;
     private bool climbing = false;
@@ -27,6 +28,7 @@ public class PlayerMovement : MonoBehaviour {
         bb = gameObject.GetComponent<BoxCollider2D>();
         rb2d = gameObject.GetComponent<Rigidbody2D>();
         ani = gameObject.GetComponent<Animator>();
+        sr = gameObject.GetComponent<SpriteRenderer>();
         distToGround = cc.bounds.extents.y/2 + bb.bounds.extents.y;
         horzSize = cc.bounds.extents.x;
         Debug.Log("dist to ground: " + distToGround);
@@ -42,12 +44,25 @@ public class PlayerMovement : MonoBehaviour {
                 {
                     jump = false;
                 }
-                if (IsGrounded()) { 
+                if (IsGrounded())
+                {
                     float horz = Input.GetAxis("Horizontal");
                     rb2d.velocity = new Vector2(horz * speed, rb2d.velocity.y);
                     lastDir = facingRight;
-
                 }
+                else
+                {
+                    float horz = Input.GetAxis("Horizontal");
+                    if(horz < 0 != facingRight)
+                    {
+                        rb2d.velocity = new Vector2(rb2d.velocity.x - (rb2d.velocity.x * .5f * Time.deltaTime), rb2d.velocity.y);
+                    }
+                    else
+                    {
+                        rb2d.velocity = new Vector2(horz * speed, rb2d.velocity.y);
+                    }
+                }
+            
 
                 // transform.Translate(horz * speed * Time.deltaTime, 0, 0);
 
@@ -109,10 +124,8 @@ public class PlayerMovement : MonoBehaviour {
 
     void flip()
     {
+        sr.flipX = !sr.flipX;
         facingRight = !facingRight;
-        Vector3 scale = transform.localScale;
-        scale.x *= -1;
-        transform.localScale = scale;
     }
 
     void OnCollisionEnter2D(Collision2D coll)

@@ -104,6 +104,7 @@ public class Ping : MonoBehaviour {
 
     IEnumerator FlashBar()
     {
+        Debug.Log("Flashing");
         if(!flash)
         {
             flash = true;
