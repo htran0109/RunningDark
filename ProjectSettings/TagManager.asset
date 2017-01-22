@@ -12,6 +12,8 @@ TagManager:
   - CheckPoint
   - Enemy
   - GameOverText
+  - WinMesg
+  - TimeText
   layers:
   - Default
   - TransparentFX
