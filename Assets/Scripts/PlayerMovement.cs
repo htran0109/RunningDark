@@ -22,6 +22,11 @@ public class PlayerMovement : MonoBehaviour {
     private bool jump = false;
     private bool climbing = false;
 
+    public AudioSource moveSfxSrc;
+    public AudioClip walksfx;
+    public AudioClip jumpsfx;
+    public AudioClip landsfx;
+
 	// Use this for initialization
 	void Start () {
         cc = gameObject.GetComponent<CircleCollider2D>();
@@ -40,14 +45,29 @@ public class PlayerMovement : MonoBehaviour {
         {
             if (!climbing)
             {
-                if (rb2d.velocity.y < 0 && IsGrounded())
+                if (rb2d.velocity.y < 0 && IsGrounded() && jump)
                 {
+                    moveSfxSrc.clip = landsfx;
+                    moveSfxSrc.loop = false;
+                    moveSfxSrc.Play();
                     jump = false;
                 }
                 if (IsGrounded())
                 {
                     float horz = Input.GetAxis("Horizontal");
                     rb2d.velocity = new Vector2(horz * speed, rb2d.velocity.y);
+                    
+                    if(horz != 0 && !moveSfxSrc.isPlaying && !jump)
+                    {
+                        moveSfxSrc.clip = walksfx;
+                        moveSfxSrc.loop = true;
+                        moveSfxSrc.Play();
+                    }
+                    else
+                    {
+                        moveSfxSrc.loop = false;
+                    }
+                    
                 }
                 else
                 {
@@ -79,6 +99,9 @@ public class PlayerMovement : MonoBehaviour {
                     ani.SetTrigger("Jumped");
                     jump = true;
                     rb2d.velocity = rb2d.velocity + new Vector2(0, jumpSpeed);
+                    moveSfxSrc.clip = jumpsfx;
+                    moveSfxSrc.loop = false;
+                    moveSfxSrc.Play();
                 }
             }
             else
