@@ -71,8 +71,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1142281126095840}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 1.74, y: 3.73, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 3}
   m_Children:
   - {fileID: 4092393848535790}
   m_Father: {fileID: 0}
@@ -145,7 +145,7 @@ CircleCollider2D:
   m_UsedByEffector: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
-  m_Radius: 0.93765664
+  m_Radius: 0.29330787
 --- !u!81 &81074163928266830
 AudioListener:
   m_ObjectHideFlags: 1
@@ -202,10 +202,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a0f0274d7cd01a41aa4d60308f2329a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
+  ammoBar: {fileID: 0}
+  ammoImage: {fileID: 0}
+  ammoContainer: {fileID: 0}
+  maxCapacity: 15
+  smallPingCost: 1
+  largePingCost: 3
   smallPingSprite: {fileID: 4364653468439928, guid: 5d72ea2050d64104998da28b765968ee,
     type: 2}
   largePingSprite: {fileID: 4034611800884436, guid: d3c2a40f45b24b646ad6041684c69762,
     type: 2}
+  enemyPing: {fileID: 0}
 --- !u!124 &124628436117732376
 Behaviour:
   m_ObjectHideFlags: 1
@@ -244,7 +252,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: eb9bd4a31a1599f44bec8d0444ef914e, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 18b8f27d8403a3740835758c1b8d93c8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
