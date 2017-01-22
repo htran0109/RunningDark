@@ -8,6 +8,7 @@ public class Checkpoint : MonoBehaviour {
     BoxCollider2D bc;
     public PointAtNearestCheckpoint pointer;
     public Ping ping;
+    public bool winningCheckpoint = false;
     ParticleSystem ps;
 
 	// Use this for initialization
@@ -30,7 +31,14 @@ public class Checkpoint : MonoBehaviour {
         {
             Debug.Log("Setting Checkpoint");
             GameManager.instance.checkpoint = transform.position;
+            if (winningCheckpoint)
+            {
+                GameManager.instance.win = true;
+                GameManager.instance.gameover = true;
+                GameManager.instance.winTime = Time.time;
+            }
             StartCoroutine("Collect");
+
 
         }
     }

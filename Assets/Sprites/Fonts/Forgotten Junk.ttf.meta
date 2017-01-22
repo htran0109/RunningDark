@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 5f77c705c010a0144bad178d21554469
+timeCreated: 1485115639
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Forgotten Junk
+  fontNames:
+  - Forgotten Junk
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

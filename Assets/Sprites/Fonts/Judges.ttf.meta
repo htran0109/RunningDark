@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 51556c44803b22741b12c669d39d4e6e
+timeCreated: 1485115695
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Judges
+  fontNames:
+  - Judges
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
