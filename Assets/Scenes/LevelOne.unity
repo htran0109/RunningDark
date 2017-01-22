@@ -1438,7 +1438,7 @@ Prefab:
     - target: {fileID: 114419998802824242, guid: abe765970231d5b498431373661bf924,
         type: 2}
       propertyPath: winningCheckpoint
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: abe765970231d5b498431373661bf924, type: 2}
