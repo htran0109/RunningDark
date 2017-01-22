@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212574627935872758}
   - component: {fileID: 58417807657654762}
   - component: {fileID: 114358004777558744}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: blade
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -39,7 +39,7 @@ GameObject:
   - component: {fileID: 4647075470037532}
   - component: {fileID: 61391330983745260}
   - component: {fileID: 114934137399352490}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}

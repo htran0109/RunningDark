@@ -67,7 +67,7 @@ public class Turret : MonoBehaviour {
 
         RaycastHit2D hit;
         Debug.DrawRay(transform.position, (target - transform.position) * 10.0f, Color.green, 0.1f);
-        int layerMask = (1 << LayerMask.NameToLayer("Player")) | (1<< LayerMask.NameToLayer("GroundPing")) | (1 << LayerMask.NameToLayer("Enemy")) | (1 << LayerMask.NameToLayer("PickUp"));
+        int layerMask = (1 << LayerMask.NameToLayer("Player")) | (1<< LayerMask.NameToLayer("GroundPing")) | (1 << LayerMask.NameToLayer("Enemy")) | (1 << LayerMask.NameToLayer("PickUp") | (1 << LayerMask.NameToLayer("Hat")));
         layerMask = ~layerMask;
         hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), new Vector2((target - transform.position).x, (target - transform.position).y), laserRange, layerMask);
         //if hit object
@@ -94,13 +94,14 @@ public class Turret : MonoBehaviour {
         }
 
 
-        layerMask = (1 << LayerMask.NameToLayer("GroundPing")) | (1 << LayerMask.NameToLayer("Enemy")) | (1 << LayerMask.NameToLayer("PickUp"));//ignore ground ping layer and self
+        layerMask = (1 << LayerMask.NameToLayer("GroundPing")) | (1 << LayerMask.NameToLayer("Enemy")) | (1 << LayerMask.NameToLayer("PickUp") | (1 << LayerMask.NameToLayer("Hat")));//ignore ground ping layer and self
         layerMask = ~layerMask;
         hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), new Vector2((target - transform.position).x, (target - transform.position).y), 10.0f, layerMask);
         sfx.clip = fire;
         sfx.Play();
         if (hit.collider)
         {
+            Debug.Log(hit.collider.gameObject);
             if(hit.collider.gameObject.tag == "Player")
             {
                 Debug.Log("Hit Player");
