@@ -88,11 +88,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1485cc4ac44a284f8023da28e44f52d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 0.3
+  duration: 0.4
   startScale: 5
   endScale: 20
-  startAlpha: 0.2
-  endAlpha: 0.1
+  startAlpha: 0
+  endAlpha: 0
 --- !u!212 &212597344331360772
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -125,6 +125,6 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 28901e869f7ab624ab640ad6dcd6ea9a, type: 3}
-  m_Color: {r: 1, g: 0.007352948, b: 0.007352948, a: 0.234}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_FlipX: 0
   m_FlipY: 0
