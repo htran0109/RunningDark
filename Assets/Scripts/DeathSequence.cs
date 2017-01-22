@@ -6,6 +6,8 @@ public class DeathSequence : MonoBehaviour
 {
 
     public GameObject deathMovement;
+    public GameObject cameraObj;
+
     
   
 
@@ -36,14 +38,16 @@ public class DeathSequence : MonoBehaviour
         int mask = 0;
         mask |= (1 << LayerMask.NameToLayer("Player"));
         mask |= (1 << LayerMask.NameToLayer("Ground"));
-
+        
 
         mask = ~mask;
+        Debug.Log("Hi");
+        // Physics2D.IgnoreLayerCollision(8, 11, true);
 
-        //Physics2D.IgnoreLayerCollision(8, 11, true);
 
+        cameraObj.transform.parent = null;
 
-
+        Destroy(gameObject);
 
 
 

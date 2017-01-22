@@ -1,6 +1,11 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Assets/Scenes/AbiTestScene.unity.meta
 guid: 46cabe4c26a72354ebf8013f6c1abc8f
 timeCreated: 1485048224
+=======
+guid: 8799d9b822e8e5545b00a75ba3f3b67c
+timeCreated: 1485044029
+>>>>>>> 136888569e461d4c00cc22bd041dfc44daf1187e:Assets/Scenes/AbiTestScene.unity.meta
 licenseType: Free
 DefaultImporter:
   userData: 
