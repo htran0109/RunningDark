@@ -21,7 +21,7 @@ GameObject:
   - component: {fileID: 4781937485976016}
   - component: {fileID: 58977175381673602}
   - component: {fileID: 114882344913782022}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy Ghost
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   - component: {fileID: 58731502107434054}
   - component: {fileID: 95694435835322836}
   - component: {fileID: 114265821158814356}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GhostObj
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 50866049927378202}
   - component: {fileID: 61581343683532220}
   - component: {fileID: 114115644266325460}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: GhostMovement
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -225,6 +225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f1afc16573976a4ab087cd57318def7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gm: {fileID: 0}
 --- !u!114 &114882344913782022
 MonoBehaviour:
   m_ObjectHideFlags: 1

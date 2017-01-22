@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -16,6 +17,7 @@ public class GameManager : MonoBehaviour {
     void Awake()
     {
         DontDestroyOnLoad(transform.gameObject);
+       
     }
 	// Use this for initialization
 	void Start () {
@@ -23,6 +25,7 @@ public class GameManager : MonoBehaviour {
         cameraObj = GameObject.Find("Main Camera");
 		if(instance != null)
         {
+            Destroy(instance.gameObject);
             Debug.LogError("Singleton Goofed");
         }
         instance = this;
@@ -52,6 +55,10 @@ public class GameManager : MonoBehaviour {
                 
                 gameover = false;
             }
+        }
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            SceneManager.LoadScene("LevelOne");
         }
         
 	}

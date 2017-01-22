@@ -14,6 +14,9 @@ public class Turret : MonoBehaviour {
 
     public AudioClip charge;
     public AudioClip fire;
+
+    private bool charging = false;
+    private bool bursting = false;
     
     
 
@@ -30,33 +33,46 @@ public class Turret : MonoBehaviour {
             StartCoroutine("Burst", player.transform.position);
         }
         */
+        if (!charging && !bursting)
+        {
+            transform.LookAt(player.transform);
+            transform.Rotate(new Vector3(0, 1, 0), -90);
+        }
+
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
         Debug.Log(other.gameObject.name + "Hit" + other.gameObject.tag);
 
-        if (other.gameObject.tag == "SmallPing")
+        if (!charging && !bursting)
         {
-            StartCoroutine("Shoot", player.transform.position);
-        }
-        else if (other.gameObject.tag == "LargePing")
-        {
-            StartCoroutine("Burst", player.transform.position);
+            if (other.gameObject.tag == "SmallPing")
+            {
+                StartCoroutine("Shoot", player.transform.position);
+            }
+            else if (other.gameObject.tag == "LargePing")
+            {
+                StartCoroutine("Burst", player.transform.position);
+            }
         }
     }
 
     IEnumerator Burst(Vector3 target)
     {
+        bursting = true;
         StartCoroutine("Shoot", player.transform.position);
         yield return new WaitForSeconds(burstFireDelay);
         StartCoroutine("Shoot", player.transform.position);
         yield return new WaitForSeconds(burstFireDelay);
         StartCoroutine("Shoot", player.transform.position);
+        yield return new WaitForSeconds(1.1f);
+        bursting = false;
     }
 
     IEnumerator Shoot(Vector3 target)
     {
+        charging = true;
         GameObject shot = Instantiate(laser, transform);
         LineRenderer lr = shot.GetComponent<LineRenderer>();
         AudioSource sfx = shot.GetComponent<AudioSource>();
@@ -87,7 +103,7 @@ public class Turret : MonoBehaviour {
         {
             laserColor = Color.red;
             laserColor.a = i / 10.0f;
-            Debug.Log("alpha: " + laserColor.a);
+            //Debug.Log("alpha: " + laserColor.a);
             lr.startColor = laserColor;
             lr.endColor = laserColor;
             yield return new WaitForSeconds(0.1f);
@@ -97,6 +113,8 @@ public class Turret : MonoBehaviour {
         layerMask = (1 << LayerMask.NameToLayer("GroundPing")) | (1 << LayerMask.NameToLayer("Enemy")) | (1 << LayerMask.NameToLayer("PickUp") | (1 << LayerMask.NameToLayer("Hat")));//ignore ground ping layer and self
         layerMask = ~layerMask;
         hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), new Vector2((target - transform.position).x, (target - transform.position).y), 10.0f, layerMask);
+        transform.LookAt(target);
+        transform.Rotate(new Vector3(0, 1, 0), -90);
         sfx.clip = fire;
         sfx.Play();
         if (hit.collider)
@@ -112,7 +130,7 @@ public class Turret : MonoBehaviour {
         laserColor = Color.white;
         lr.startColor = laserColor;
         lr.endColor = laserColor;
-
+        charging = false;
         yield return new WaitForSeconds(0.1f);
         lr.enabled = false;
         Destroy(shot);
