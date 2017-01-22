@@ -39,7 +39,9 @@ public class GameManager : MonoBehaviour {
                 player.GetComponent<SpriteRenderer>().enabled = true;
                 player.GetComponent<Ping>().ammo = player.GetComponent<Ping>().maxCapacity;
                 cameraObj.transform.SetParent(player.transform);
+                
                 player.transform.position = checkpoint;
+                cameraObj.transform.position = checkpoint - new Vector3(0,0,10);
                 gameover = false;
             }
         }
