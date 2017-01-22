@@ -35,13 +35,17 @@ public class ghostStun : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        /*
-        if (other.tag == "SmallPing")
+        
+        if (other.tag == "GroundPing")
         {
-            DisableChildren();
-            Debug.Log("Hit");
-            Invoke("EnableChildren", 2);
+            if(other.gameObject.GetComponent<SmallPing>() != null)
+            {
+                DisableChildren();
+                Debug.Log("Hit");
+                Invoke("EnableChildren", 2);
+            }
+            
         }
-        */
+        
     }
 }
