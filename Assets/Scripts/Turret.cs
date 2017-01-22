@@ -11,11 +11,15 @@ public class Turret : MonoBehaviour {
     public float burstFireDelay = 0.3f;
 
     public float laserRange = 10.0f;
+
+    public AudioClip charge;
+    public AudioClip fire;
     
     
 
 	// Use this for initialization
 	void Start () {
+        player = GameObject.FindGameObjectWithTag("Player");
 	}
 	
 	// Update is called once per frame
@@ -76,7 +80,8 @@ public class Turret : MonoBehaviour {
             lr.SetPosition(1, transform.position + (target - transform.position) * laserRange);
         }
         lr.SetPosition(0, transform.position);
-
+        sfx.clip = charge;
+        sfx.Play();
         Color laserColor;
         for (int i = 0; i < 10; i++)
         {
@@ -92,8 +97,9 @@ public class Turret : MonoBehaviour {
         layerMask = (1 << LayerMask.NameToLayer("GroundPing")) | (1 << LayerMask.NameToLayer("Enemy")) | (1 << LayerMask.NameToLayer("PickUp"));//ignore ground ping layer and self
         layerMask = ~layerMask;
         hit = Physics2D.Raycast(new Vector2(transform.position.x, transform.position.y), new Vector2((target - transform.position).x, (target - transform.position).y), 10.0f, layerMask);
+        sfx.clip = fire;
         sfx.Play();
-        if(hit.collider)
+        if (hit.collider)
         {
             if(hit.collider.gameObject.tag == "Player")
             {

@@ -7,19 +7,25 @@ public class PlayerMovement : MonoBehaviour {
     public float speed = 5;
     public float animSpeedThresh = 2;
     public float jumpSpeed = 10;
-
-    private float distToGround;
+    public float airSpeed = 5;
+    
+    public float distToGround;
     private float horzSize;
     private bool facingRight;
 
-    private CircleCollider2D cc;
-    private BoxCollider2D bb;
+    public CircleCollider2D cc;
+    public BoxCollider2D bb;
     private Rigidbody2D rb2d;
-    private Animator ani;
+    public Animator ani;
     private SpriteRenderer sr;
 
     private bool jump = false;
-    private bool climbing = false;
+    public bool climbing = false;
+
+    public AudioSource moveSfxSrc;
+    public AudioClip walksfx;
+    public AudioClip jumpsfx;
+    public AudioClip landsfx;
 
 	// Use this for initialization
 	void Start () {
@@ -39,28 +45,49 @@ public class PlayerMovement : MonoBehaviour {
         {
             if (!climbing)
             {
-                if (rb2d.velocity.y < 0 && IsGrounded())
+                if (rb2d.velocity.y < 0 && IsGrounded() && jump)
                 {
+                    moveSfxSrc.clip = landsfx;
+                    moveSfxSrc.loop = false;
+                    moveSfxSrc.Play();
                     jump = false;
                 }
                 if (IsGrounded())
                 {
                     float horz = Input.GetAxis("Horizontal");
                     rb2d.velocity = new Vector2(horz * speed, rb2d.velocity.y);
+                    
+                    if(horz != 0 && !moveSfxSrc.isPlaying && !jump)
+                    {
+                        moveSfxSrc.clip = walksfx;
+                        moveSfxSrc.loop = true;
+                        moveSfxSrc.Play();
+                    }
+                    else
+                    {
+                        moveSfxSrc.loop = false;
+                    }
+                    
                 }
                 else
                 {
                     float horz = Input.GetAxis("Horizontal");
+                    
                     if(horz < 0 != rb2d.velocity.x < 0)
                     {
                         Debug.Log("Slowing Air" + rb2d.velocity);
-                        rb2d.velocity = new Vector2(rb2d.velocity.x - (rb2d.velocity.x * .5f * Time.deltaTime), rb2d.velocity.y);
+                        //rb2d.velocity = new Vector2(rb2d.velocity.x / (1 + Time.deltaTime), rb2d.velocity.y);
+                        rb2d.AddForce(new Vector2(horz * airSpeed, 0));
+
                     }
-                    else
+                    /*else if(horz == 0 || rb2d.velocity.x == 0) {
+
+                    }
+                    else if( horz < 0 == rb2d.velocity.x <0)
                     {
                         Debug.Log("Speeding Air");
                         rb2d.velocity = new Vector2(rb2d.velocity.x + Mathf.Min((1/rb2d.velocity.x * 10f * Time.deltaTime), speed/4), rb2d.velocity.y);
-                    }
+                    }*/
                 }
             
 
@@ -72,6 +99,9 @@ public class PlayerMovement : MonoBehaviour {
                     ani.SetTrigger("Jumped");
                     jump = true;
                     rb2d.velocity = rb2d.velocity + new Vector2(0, jumpSpeed);
+                    moveSfxSrc.clip = jumpsfx;
+                    moveSfxSrc.loop = false;
+                    moveSfxSrc.Play();
                 }
             }
             else
@@ -87,7 +117,7 @@ public class PlayerMovement : MonoBehaviour {
 		
 	}
 
-    bool IsGrounded()
+    public bool IsGrounded()
     {
         Debug.DrawRay(transform.position, -Vector3.up * (distToGround + 0.1f), Color.red, 1);
         Debug.DrawRay(transform.position + new Vector3(horzSize, 0, 0), -Vector3.up * (distToGround + 0.1f), Color.red, 0.2f);
@@ -112,11 +142,12 @@ public class PlayerMovement : MonoBehaviour {
             
             ani.SetBool("Moving", false);
         }
-        if(rb2d.velocity.x > 0 && facingRight)
+        float horz = Input.GetAxis("Horizontal");
+        if (horz>0 && facingRight)
         {
             flip();
         }
-        else if (rb2d.velocity.x < 0 && !facingRight)
+        else if (horz< 0 && !facingRight)
         {
             flip();
         }
@@ -128,7 +159,7 @@ public class PlayerMovement : MonoBehaviour {
         facingRight = !facingRight;
     }
 
-    void OnCollisionEnter2D(Collision2D coll)
+    /*void OnCollisionEnter2D(Collision2D coll)
     {
         Debug.Log(coll.gameObject.name + "Hit by player");
         if(coll.gameObject.tag == "Ground")
@@ -162,7 +193,7 @@ public class PlayerMovement : MonoBehaviour {
             yield return null;
         }
         cc.enabled = true;
-        bb.enabled = false;
+        bb.enabled = true;
         climbing = false;
-    }
+    }*/
 }
