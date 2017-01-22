@@ -11,17 +11,13 @@ public class GameManager : MonoBehaviour {
     public GameObject player;
     public GameObject respParticle;
     public bool gameover = false;
-    public bool win = false;
     public Vector3 checkpoint = new Vector3(0,0,0);
     public AudioClip reset;
     private AudioSource sfx;
-    private float startTime;
-    public float winTime;
 
     void Awake()
     {
         DontDestroyOnLoad(transform.gameObject);
-        
        
     }
 	// Use this for initialization
@@ -34,19 +30,15 @@ public class GameManager : MonoBehaviour {
             Debug.Log("Singleton Goofed");
         }
         instance = this;
-        startTime = Time.time;
-    }
+	}
 	
 	// Update is called once per frame
 	void Update () {
-		if(gameover)
+        if (gameover)
         {
-
-            if(!win)
-            {
-                setGameOverScreen(true);
-            }
-            if (Input.GetKeyDown("r") && !win)
+            setGameOverScreen(true);
+        }
+            if (Input.GetKeyDown("r"))
             {
                 setGameOverScreen(false);
                 sfx.clip = reset;
@@ -67,14 +59,12 @@ public class GameManager : MonoBehaviour {
                 
                 gameover = false;
             }
-        }
+        //}
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             SceneManager.LoadScene("LevelOne");
-            startTime = Time.time;
             setGameOverScreen(false);
         }
-        setWinScreen(win);
         
 	}
 
@@ -87,20 +77,6 @@ public class GameManager : MonoBehaviour {
         {
             text.enabled = gameover;
         }
-
-    }
-    void setWinScreen(bool win)
-    {
-        Text timer = GameObject.FindGameObjectWithTag("TimeText").GetComponent<Text>();
-        timer.text = "Time: " + (winTime - startTime);
-        GameObject go = GameObject.FindGameObjectWithTag("WinMesg");
-        go.GetComponent<Image>().enabled = win;
-        Text[] texts = go.GetComponentsInChildren<Text>();
-        foreach (Text text in texts)
-        {
-            text.enabled = win;
-        }
-        
 
     }
 }
