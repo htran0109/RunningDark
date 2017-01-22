@@ -5,8 +5,8 @@ using UnityEngine;
 public class GameManager : MonoBehaviour {
 
     public static GameManager instance;
+    public GameObject cameraObj;
     public GameObject player;
-
     public bool gameover = false;
     public Vector3 checkpoint = new Vector3(0,0,0);
 
@@ -16,6 +16,7 @@ public class GameManager : MonoBehaviour {
     }
 	// Use this for initialization
 	void Start () {
+        cameraObj = GameObject.Find("Main Camera");
 		if(instance != null)
         {
             Debug.LogError("Singleton Goofed");
@@ -27,16 +28,15 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 		if(gameover)
         {
-            //do some text stuff
-        }
-        if (Input.GetKeyDown("r"))
-        {
-            GameObject oldPlayer = GameObject.FindGameObjectWithTag("Player");
-            if(oldPlayer != null)
+            if (Input.GetKeyDown("r"))
             {
-                Destroy(oldPlayer);
+                player = GameObject.FindGameObjectWithTag("Player");
+                player.GetComponent<SpriteRenderer>().enabled = true;
+                cameraObj.transform.SetParent(player.transform);
+                player.transform.position = checkpoint;
+                gameover = false;
             }
-            Instantiate(player, checkpoint, Quaternion.identity);
         }
+        
 	}
 }

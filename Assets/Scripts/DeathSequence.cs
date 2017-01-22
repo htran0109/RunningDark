@@ -47,7 +47,8 @@ public class DeathSequence : MonoBehaviour
 
         cameraObj.transform.parent = null;
 
-        Destroy(gameObject);
+        GetComponent<SpriteRenderer>().enabled = false;
+        GameManager.instance.gameover = true;
 
 
 
