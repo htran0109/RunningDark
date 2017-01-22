@@ -36,7 +36,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1686433804850818}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.5655546, y: 4.4053907, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -72,6 +72,8 @@ MonoBehaviour:
   spark: {fileID: 1509869393819566, guid: 7b16c65ae7fbbf041b3d52e4cb06142d, type: 2}
   burstFireDelay: 0.3
   laserRange: 20
+  charge: {fileID: 8300000, guid: 795a18ed820cf044c92c6d6ece6cd623, type: 3}
+  fire: {fileID: 8300000, guid: e2ada9724f6673347a5a4418760c002b, type: 3}
 --- !u!212 &212981517417720950
 SpriteRenderer:
   m_ObjectHideFlags: 1

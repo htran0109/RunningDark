@@ -24,10 +24,16 @@ public class Ping : MonoBehaviour {
     public Transform largePingSprite;
     public GameObject enemyPing;
 
+    private AudioSource sfx;
+    public AudioClip smallPing;
+    public AudioClip largePing;
+    public AudioClip noEnergy;
+
     private bool flash = false;
 	// Use this for initialization
 	void Start () {
         ammo = maxCapacity;
+        sfx = GetComponent<AudioSource>();
 	}
 	
 	// Update is called once per frame
@@ -57,11 +63,15 @@ public class Ping : MonoBehaviour {
                     Instantiate(largePingSprite, transform.position, Quaternion.identity);
                     GameObject triggerPing = Instantiate(enemyPing, transform.position, Quaternion.identity);
                     triggerPing.tag = "LargePing";
+                    sfx.clip = largePing;
+                    sfx.Play();
                 }
                 else
                 {
                     //out of charge effect
                     StartCoroutine("FlashBar");
+                    sfx.clip = noEnergy;
+                    sfx.Play();
                 }
 
                 charge = 0;
@@ -82,11 +92,15 @@ public class Ping : MonoBehaviour {
                                                              rot);
                     GameObject triggerPing = Instantiate(enemyPing, transform.position, Quaternion.identity);
                     triggerPing.tag = "SmallPing";
+                    sfx.clip = smallPing;
+                    sfx.Play();
                 }
                 else
                 {
                     //out of charge effect
                     StartCoroutine("FlashBar");
+                    sfx.clip = noEnergy;
+                    sfx.Play();
                 }
                 
             }

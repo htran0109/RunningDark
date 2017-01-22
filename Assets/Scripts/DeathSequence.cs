@@ -8,6 +8,8 @@ public class DeathSequence : MonoBehaviour
     public GameObject deathMovement;
     public GameObject cameraObj;
 
+    public AudioClip death;
+
     
   
 
@@ -18,7 +20,7 @@ public class DeathSequence : MonoBehaviour
     void Start()
     {
 
-       // audio = GetComponent<AudioSource>();
+        audio = GetComponent<AudioSource>();
         rb2d = GetComponent<Rigidbody2D>();
 
     }
@@ -33,6 +35,8 @@ public class DeathSequence : MonoBehaviour
 
     public void Die()
     {
+        audio.clip = death;
+        audio.Play();
 
 
         int mask = 0;
