@@ -52,14 +52,14 @@ public class Ping : MonoBehaviour {
     {
         if(!GameManager.instance.gameover)
         {
-            if (Input.GetButton("Fire1"))
+            /*if (Input.GetButton("Fire1"))
             {
                 charge += Time.deltaTime;
-            }
-            if (Input.GetButtonUp("Fire1"))
+            }*/
+            if (Input.GetButtonDown("Fire2"))
             {
-                if (charge > .4f)
-                {
+                /*if (charge > .4f)
+                {*/
                     if (ammo >= largePingCost)
                     {
                         ammo -= largePingCost;
@@ -80,42 +80,45 @@ public class Ping : MonoBehaviour {
 
                     charge = 0;
                 }
-                else if (charge > .05)
+            if (Input.GetButtonDown("Fire1"))
+            {
+                if (ammo >= smallPingCost)
                 {
-                    if (ammo >= smallPingCost)
+                    ammo -= smallPingCost;
+                    Quaternion rot = smallPingSprite.transform.rotation;
+                    if (direction == FACE_LEFT)
                     {
-                        ammo -= smallPingCost;
-                        Quaternion rot = smallPingSprite.transform.rotation;
-                        if (direction == FACE_LEFT)
-                        {
-                            Debug.Log("FLIPPED PING");
-                            rot.eulerAngles = new Vector3(0, 0, -90);
-                        }
-                        if (direction == FACE_RIGHT)
-                        {
-                            Instantiate(smallPingSprite, new Vector3(transform.position.x + 1, transform.position.y, transform.position.z),
-                                                                     rot);
-                        }
-                        else
-                        {
-                            Instantiate(smallPingSprite, new Vector3(transform.position.x - 1, transform.position.y, transform.position.z),
-                                             rot);
-                        }
-                        Debug.Log("Making trigger");
-                        GameObject triggerPing = Instantiate(enemyPing, transform.position, Quaternion.identity);
-                        triggerPing.tag = "SmallPing";
-                        sfx.clip = smallPing;
-                        sfx.Play();
+                        Debug.Log("FLIPPED PING");
+                        rot.eulerAngles = new Vector3(0, 0, -90);
+                    }
+                    if (direction == FACE_RIGHT)
+                    {
+                        Instantiate(smallPingSprite, new Vector3(transform.position.x + 1, transform.position.y, transform.position.z),
+                                                                 rot);
                     }
                     else
                     {
-                        //out of charge effect
-                        StartCoroutine("FlashBar");
-                        sfx.clip = noEnergy;
-                        sfx.Play();
+                        Instantiate(smallPingSprite, new Vector3(transform.position.x - 1, transform.position.y, transform.position.z),
+                                         rot);
                     }
-
+                    Debug.Log("Making trigger");
+                    GameObject triggerPing = Instantiate(enemyPing, transform.position, Quaternion.identity);
+                    triggerPing.tag = "SmallPing";
+                    sfx.clip = smallPing;
+                    sfx.Play();
                 }
+                else
+                {
+                    //out of charge effect
+                    StartCoroutine("FlashBar");
+                    sfx.clip = noEnergy;
+                    sfx.Play();
+                }
+
+            }
+
+
+                
                 charge = 0;
             }
             if (Input.GetAxis("Horizontal") < 0)
@@ -128,7 +131,6 @@ public class Ping : MonoBehaviour {
             }
         }
         
-    }
 
     IEnumerator FlashBar()
     {
