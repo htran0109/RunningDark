@@ -30,7 +30,7 @@ public class AmmoPickup : MonoBehaviour {
             {
                 ping.ammo = ping.maxCapacity;
             }
-            GetComponent<SpriteRenderer>().enabled = false;
+            GetComponentInChildren<SpriteRenderer>().enabled = false;
             GetComponent<BoxCollider2D>().enabled = false;
             sfx.Play();
             Destroy(gameObject, sfx.clip.length);
