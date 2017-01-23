@@ -74,6 +74,7 @@ MonoBehaviour:
   laserRange: 20
   charge: {fileID: 8300000, guid: 795a18ed820cf044c92c6d6ece6cd623, type: 3}
   fire: {fileID: 8300000, guid: e2ada9724f6673347a5a4418760c002b, type: 3}
+  laserMat: {fileID: 2100000, guid: e8443595a69e64a429dc9ce8ac82202b, type: 2}
 --- !u!212 &212981517417720950
 SpriteRenderer:
   m_ObjectHideFlags: 1
