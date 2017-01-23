@@ -6,7 +6,7 @@ public class EnemyMovementController : MonoBehaviour
 {
 
     public float enemySpeed;
-    Animator enemyAmimator;
+    Animator enemyAnimator;
 
     //facing
     public GameObject enemyGraphic;
@@ -25,7 +25,7 @@ public class EnemyMovementController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        enemyAmimator = GetComponentInChildren<Animator>();
+        enemyAnimator = GetComponentInChildren<Animator>();
         enemyRB = GetComponent<Rigidbody2D>();
 
     }
@@ -43,41 +43,48 @@ public class EnemyMovementController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" || other.tag == "LargePing")
         {
             if (facingRight && other.transform.position.x < transform.position.x) flipFacing();
         }
         else if (!facingRight && other.transform.position.x > transform.position.x)
         {
             flipFacing();
+            Debug.Log("ChangedRightFace");
         }
         canFlip = false;
         charging = true;
         startChargeTime = Time.time + chargeTime;
-
+        
     }
 
     void OnTriggerStay2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
-            if (startChargeTime < Time.time)
-            {
-                if (!facingRight) enemyRB.AddForce(new Vector2(-1, 0) * enemySpeed);
-                else enemyRB.AddForce(new Vector2(1, 0) * enemySpeed);
-                enemyAmimator.SetBool("isMoving", charging);
-            }
+            Debug.Log("Charge!");
+            charge();
         }
     }
-
     void OnTriggerExit2D(Collider2D other)
     {
         if (other.tag == "Player")
         {
+            Debug.Log("ExitCharge");
             canFlip = true;
             charging = false;
             enemyRB.velocity = new Vector2(0f, 0f);
-            enemyAmimator.SetBool("isMoving", charging);
+            enemyAnimator.SetBool("isMoving", charging);
+        }
+    }
+
+    void charge()
+    {
+        if (startChargeTime < Time.time)
+        {
+            if (!facingRight) enemyRB.AddForce(new Vector2(-1, 0) * enemySpeed);
+            else enemyRB.AddForce(new Vector2(1, 0) * enemySpeed);
+            enemyAnimator.SetBool("isMoving", charging);
         }
     }
 
