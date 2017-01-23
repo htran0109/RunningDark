@@ -17,6 +17,8 @@ public class Turret : MonoBehaviour {
 
     private bool charging = false;
     private bool bursting = false;
+
+    public Material laserMat;
     
     
 
@@ -79,7 +81,7 @@ public class Turret : MonoBehaviour {
         lr.startWidth = 0.1f;
         lr.endWidth = 0.1f;
         lr.enabled = true;
-        lr.material = new Material(Shader.Find("Particles/Additive (Soft)"));
+        lr.material = laserMat;
 
         RaycastHit2D hit;
         Debug.DrawRay(transform.position, (target - transform.position) * 10.0f, Color.green, 0.1f);

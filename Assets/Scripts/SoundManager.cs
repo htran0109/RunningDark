@@ -10,12 +10,14 @@ public class SoundManager : MonoBehaviour {
     void Awake()
     {
         DontDestroyOnLoad(transform.gameObject);
+        
     }
     // Use this for initialization
     void Start () {
         music = GetComponent<AudioSource>();
         if (instance != null)
         {
+            Destroy(instance.gameObject);
             Debug.LogError("Singleton Goofed");
         }
         instance = this;
