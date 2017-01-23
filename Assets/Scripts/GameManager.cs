@@ -70,9 +70,21 @@ public class GameManager : MonoBehaviour {
         }
         if(Input.GetKeyDown(KeyCode.Escape))
         {
+            
             SceneManager.LoadScene("LevelOne");
             startTime = Time.time;
             setGameOverScreen(false);
+        }
+        if(Input.GetKeyDown(KeyCode.Q))
+        {
+            if (SceneManager.GetActiveScene() == SceneManager.GetSceneByName("Main Menu"))
+            {
+                Application.Quit();
+            }
+            else
+            {
+                SceneManager.LoadScene("Main Menu");
+            }
         }
         setWinScreen(win);
         
