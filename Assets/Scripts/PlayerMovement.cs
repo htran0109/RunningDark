@@ -164,7 +164,7 @@ public class PlayerMovement : MonoBehaviour {
 
     void flip()
     {
-        transform.FindChild("HatClimber").transform.localScale *= -1;
+        transform.Find("HatClimber").transform.localScale *= -1;
         sr.flipX = !sr.flipX;
         facingRight = !facingRight;
     }
